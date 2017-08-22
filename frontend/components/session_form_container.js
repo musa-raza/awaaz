@@ -4,7 +4,7 @@ import SessionForm from './session_form';
 
 const mapStateToProps = (state, ownProps) => {
   let formType;
-  formType = ownProps.location.pathname === '/signup' ? 'Sign Up' : 'Login';
+  formType = ownProps.form === 'signup' ? 'Sign Up' : 'Login';
   let bool;
   bool = state.session.currentUser ? true : false;
   return({
@@ -15,18 +15,10 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  let formType;
-  formType = ownProps.location.pathname === '/signup' ? 'singup' : 'login';
-  if (formType === 'signup'){
-    return({
-      processForm: (user) => dispatch(signup(user))
-    });
-  }
-  else {
-    return({
-      processForm: (user) => dispatch(login(user))
-    });
-  }
+  const func = ownProps.form === 'signup' ? signup : login;
+  return {
+    processForm: (user) => dispatch(func(user))
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SessionForm);

@@ -9,8 +9,8 @@ const App = () => {
     <div>
       <header>
         <h1>Awaaz</h1>
-        <LoginContainer />
       </header>
+      <Route exact path="/" component={LoginContainer} />
       <AuthRoute path="/login" component={SessionFormContainer} />
       <AuthRoute path="/signup" component={SessionFormContainer} />
     </div>
