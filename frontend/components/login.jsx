@@ -7,27 +7,32 @@ class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {form: ''};
+    this.handleLogin = this.handleLogin.bind(this);
+    this.handleSignup = this.handleSignup.bind(this);
   }
 
-  handleClick(input) {
-    return (e) => {
-      e.preventDefault();
-      this.setState({form: input});
-      this.props.receiveModal();
-    };
+  handleLogin(e) {
+    e.preventDefault();
+    this.props.loginModal();
+  }
+
+  handleSignup(e) {
+    e.preventDefault();
+    this.props.signupModal();
   }
 
   render() {
+    let darken;
     let form;
     if (this.props.modalBool) {
-      <SessionFormContainer form={this.state.form} />;
+      form = <SessionFormContainer />;
+      darken = 'modal';
     } else {
       form = null;
     }
-    debugger
     if (this.props.currentUser) {
       return(
-        <div>
+        <div className={`form${darken}`}>
           <h3> Welcome {this.props.currentUser.username}</h3>
           <button className="logout-button" onClick={() => this.props.logout()}>Logout</button>
         </div>
@@ -39,10 +44,10 @@ class Login extends React.Component {
           <h2>Connect on Awaaz</h2>
             <div className="login-text">Discover, stream and share a constantly expanding mix of music from emerging and major artists all over the world.</div>
             {form}
-          <button onClick={this.handleClick('login')} className="session-button">
+          <button onClick={this.handleLogin} className="session-button">
             Sign In
           </button>
-          <button onClick= {this.handleClick('signup')}className="session-button">
+          <button onClick= {this.handleSignup}className="session-button">
             Create account
           </button>
           </div>

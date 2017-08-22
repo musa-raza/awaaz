@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
 import { signup, login } from '../actions/session_actions';
 import SessionForm from './session_form';
+import { receiveModal, removeModal, loginModal, signupModal} from '../actions/ui_actions';
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
   let formType;
-  formType = ownProps.form === 'signup' ? 'Sign Up' : 'Login';
+  formType = state.ui.formType === 'signup' ? 'Sign Up' : 'Login';
   let bool;
   bool = state.session.currentUser ? true : false;
   return({
@@ -15,7 +16,7 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  const func = ownProps.form === 'signup' ? signup : login;
+  const func = ownProps.formType === 'signup' ? signup : login;
   return {
     processForm: (user) => dispatch(func(user))
   };

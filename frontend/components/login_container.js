@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import Login from './login';
 import { login, signup, logout } from '../actions/session_actions';
-import { receiveModal, removeModal } from '../actions/ui_actions';
+import { receiveModal, removeModal, loginModal, signupModal} from '../actions/ui_actions';
 
 
 const mapStateToProps = (state) => {
@@ -18,7 +18,9 @@ const mapDispatchToProps = (dispatch) => {
     signup: (user) => dispatch(signup(user)),
     logout: () => dispatch(logout()),
     receiveModal: () => dispatch(receiveModal()),
-    removeModal: () => dispatch(removeModal())
+    removeModal: () => dispatch(removeModal()),
+    loginModal: () => dispatch(loginModal()),
+    signupModal: () => dispatch(signupModal())
   });
 };
 
