@@ -1,11 +1,18 @@
 import React from 'react';
 import LoginContainer from './login_container';
+import { Route } from 'react-router-dom';
+import SessionFormContainer from './session_form_container';
+import { AuthRoute } from '../util/route_util';
 
 const App = () => {
   return (
     <div>
-      <h1>Awaaz</h1>
-      <LoginContainer />
+      <header>
+        <h1>Awaaz</h1>
+        <LoginContainer />
+      </header>
+      <AuthRoute path="/login" component={SessionFormContainer} />
+      <AuthRoute path="/signup" component={SessionFormContainer} />
     </div>
   );
 };

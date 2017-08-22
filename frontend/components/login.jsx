@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 
 class Login extends React.Component {
 
@@ -12,16 +12,20 @@ class Login extends React.Component {
       return(
         <div>
           <h3> Welcome {this.props.currentUser.username}</h3>
-          <button onClick={() => this.props.logout()}>Logout</button>
+          <button className="logout-button" onClick={() => this.props.logout()}>Logout</button>
         </div>
       );
     }
     else {
       return(
         <div>
-          <button className="session-button">Sign in</button>
-          <button className="session-button">Create account</button>
-        </div>
+          <button className="session-button">
+            <Link className="login-link" to="/login">Sign In</Link>
+          </button>
+          <button className="session-button">
+            <Link className="login-link" to="/signup">Create account</Link>
+          </button>
+          </div>
       );
     }
   }
