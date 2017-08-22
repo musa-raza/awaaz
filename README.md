@@ -1,24 +1,66 @@
-# README
+# Awaaz
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[Trello link][trello]
 
-Things you may want to cover:
+[trello]: https://trello.com/b/t1sfYDGm/awaaz
 
-* Ruby version
+## Minimum Viable Product
 
-* System dependencies
+Awaaz is a web application inspired by Evernote built using Ruby on Rails
+and React/Redux.  By the end of Week 9, this app will, at a minimum, satisfy the
+following criteria with smooth, bug-free navigation, adequate seed data and
+sufficient CSS styling:
 
-* Configuration
+- [ ] Hosting on Heroku
+- [ ] New account creation, login, and guest/demo login
+- [ ] Playing songs on the website
+- [ ] Show pages for users and songs
+- [ ] Comments
 
-* Database creation
+## Design Docs
+* [View Wireframes][wireframes]
+* [React Components][components]
+* [API endpoints][api-endpoints]
+* [DB schema][schema]
+* [Sample State][sample-state]
 
-* Database initialization
+[wireframes]: docs/wireframes
+[components]: docs/component-hierarchy.md
+[sample-state]: docs/sample-state.md
+[api-endpoints]: docs/api-endpoints.md
+[schema]: docs/schema.md
 
-* How to run the test suite
+## Implementation Timeline
 
-* Services (job queues, cache servers, search engines, etc.)
+### Phase 1: Backend setup and Front End User Authentication (2 days)
 
-* Deployment instructions
+**Objective:** Functioning rails project with front-end Authentication
 
-* ...
+### Phase 2: Users Model API, along with components (1 days)
+
+**Objective:** Will set up a users show page. After completion, songs will be focused on and will implement songs through API.
+
+### Phase 3: Songs Model API (2 day)
+
+**Objective:** Songs can be CRUD through API and songs will have a show page.
+
+### Phase 4: Comments (1 day)
+
+**Objective:** Implement adding comments on the song show page.
+
+### Phase 5: Uploads (1 day)
+
+**Objective:** Songs and users can get profile pictures.
+
+### Phase 6: Follows (1 day)
+
+**Objective:** Implement follows between users and work who to follow component.
+
+### Phase 7: - Infinite scroll and styling (1 day)
+
+**Objective:** Add infinite scroll to StreamIndex and spend rest of the time styling
+
+### Bonus Features (TBD)
+- [ ] Waveforms
+- [ ] Implement Likes
+- [ ] Implement Playlists
