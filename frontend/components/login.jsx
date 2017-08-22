@@ -19,10 +19,12 @@ class Login extends React.Component {
     else {
       return(
         <div>
-          <button className="session-button">
+          <h2>Connect on Awaaz</h2>
+            <div className="login-text">Discover, stream and share a constantly expanding mix of music from emerging and major artists all over the world.</div>
+          <button onClick={this.props.receiveModal} className="session-button">
             <Link className="login-link" to="/login">Sign In</Link>
           </button>
-          <button className="session-button">
+          <button onClick= {this.props.receiveModal}className="session-button">
             <Link className="login-link" to="/signup">Create account</Link>
           </button>
           </div>
