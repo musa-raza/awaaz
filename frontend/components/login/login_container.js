@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import Login from './login';
-import { login, signup, logout } from '../actions/session_actions';
-import { receiveModal, removeModal, loginModal, signupModal} from '../actions/ui_actions';
+import { login, signup, logout } from '../../actions/session_actions';
+import { receiveModal, removeModal, loginModal, signupModal} from '../../actions/ui_actions';
 
 
 const mapStateToProps = (state) => {

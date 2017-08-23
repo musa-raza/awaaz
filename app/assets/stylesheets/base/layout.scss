@@ -185,14 +185,38 @@ div.logo {
   position: relative;
   bottom: 45px;
   padding: 5px;
+  line-height:20.8px;
+  margin-bottom: 16px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 16px;
+  position: relative;
+  text-align: center;
+  visibility: visible;
 }
 
-.modal-divide:before {
-  border: 1px solid black;
+.modal-divide::before {
+  border-top-color: black;
+  border-top-style: solid;
+  border-top-width: 1px;
+  content: '';
+  display: block;
+  left: 0px;
+  position: absolute;
+  top: 16.5px;
+  width: 172px;
 }
 
-.modal-divide:after {
-  border: 1px solid black;
+.modal-divide::after {
+  border-top-color: black;
+  border-top-style: solid;
+  border-top-width: 1px;
+  content: '';
+  display: block;
+  right: 0px;
+  position: absolute;
+  top: 16.5px;
+  width: 172px;
 }
 
 .errors {

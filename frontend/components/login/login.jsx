@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import SessionFormContainer from './session_form_container';
+import SessionFormContainer from '../session/session_form_container';
 
 class Login extends React.Component {
 
@@ -16,6 +16,11 @@ class Login extends React.Component {
     this.props.loginModal();
   }
 
+  componentDidMount () {
+    this.props.removeModal();
+  }
+
+
   handleSignup(e) {
     e.preventDefault();
     this.props.signupModal();
@@ -28,14 +33,6 @@ class Login extends React.Component {
     } else {
       form = null;
     }
-    if (this.props.currentUser) {
-      return(
-        <div className="logout-div">
-          <button className="logout-button" onClick={() => this.props.logout()}>Logout</button>
-        </div>
-      );
-    }
-    else {
       return(
         <div className="main-div">
           <div className="login-div">
@@ -55,6 +52,6 @@ class Login extends React.Component {
       );
     }
   }
-}
+
 
 export default Login;
