@@ -21,6 +21,12 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
+
+  has_attached_file :avatar, default_url: "/images/:style/missing.png"
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
+
+
+
   attr_reader :password
 
   def self.find_by_credentials(username, password)

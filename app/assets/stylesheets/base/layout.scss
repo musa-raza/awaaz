@@ -60,10 +60,10 @@
   margin-right: 100px;
 }
 
-div.logo {
-  content:url("logo.jpg");
-  position: relative;
-  right: 750px;
+.logo {
+  content: image-url("logo.jpg");
+  position: fixed;
+  left: 110px;
   height: 100px;
 }
 
