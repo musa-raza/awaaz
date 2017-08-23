@@ -17,6 +17,7 @@
   width: 150px;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .session-button {
@@ -24,10 +25,19 @@
 }
 
 .session-form {
+  box-sizing: border-box;
+  background-color: white;
+  border-radius: 3px;
+  padding: 20px;
+  width: 450px;
+  height: 560px;
   display: flex;
   justify-content: center;
   flex-direction: column;
+  font-family: 'Jaldi', sans-serif;
 }
+
+
 
 .login-div {
   display: flex;
@@ -35,6 +45,9 @@
   margin-right: 30px;
 }
 
+.input-username {
+  width: 400px;
+}
 
 .main-div {
   border-top: 5px solid $orange;
@@ -53,7 +66,7 @@
   text-align: center;
   font-size: 50px;
   position: relative;
-  top: 240px;
+  top: 235px;
   margin: 0 auto;
 }
 
@@ -63,9 +76,8 @@
   text-align: center;
   font-size: 25px;
   position: relative;
-  top: 280px;
+  top: 245px;
   transition: opacity .2s linear;
-  opacity: 0.5;
   width: 40%;
   margin: 0 auto;
 }
@@ -78,7 +90,7 @@
   border-radius: 3px;
   border-color: white;
   margin-right: 6px;
-  margin-top: 10px;
+  margin-top: 15px;
   font-family: 'Jaldi', sans-serif;
   padding: 0 15px;
   height: 30px;
@@ -89,4 +101,80 @@
 .op-button:hover {
   outline: 0;
   border-color: #ccc;
+}
+
+.signup-button {
+  border-radius: 3px;
+  border: 1px solid $orange;
+  width: 130px;
+  height: 30px;
+  color: white;
+  background-color: $orange;
+  margin-top: 15px;
+  font-family: 'Jaldi', sans-serif;
+  font-size: 15px;
+}
+
+.signup-button:hover {
+  outline: 0;
+  border-color: #ccc;
+}
+
+.app-div {
+  background-color: lightgrey;
+}
+
+.input-username{
+  border-radius: 3px;
+  transition: opacity 0.2s linear;
+  border: 1px solid lightgrey;
+  padding: 5px;
+  width: 75%;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  height: 30px;
+}
+
+.session-button {
+  border-radius: 3px;
+  border: 1px solid $orange;
+  width: 130px;
+  height: 30px;
+  color: white;
+  background-color: $orange;
+  margin-top: 15px;
+  font-family: 'Jaldi', sans-serif;
+  font-size: 15px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.guest-login {
+  border-radius: 3px;
+  width: 60%;
+  height: 30px;
+  color: white;
+  background-color: lightblue;
+  font-family: 'Jaldi', sans-serif;
+  font-size: 20px;
+  margin: 0 auto;
+  background: dodgerblue;
+  border: 2px solid dodgerblue;
+  text-align: center;
+  padding-bottom: 35px;
+}
+
+.guest-div {
+  display: flex;
+  position: relative;
+  bottom: 100px;
+}
+
+
+.modal-divide {
+  font-family: 'Jaldi', sans-serif;
+  font-size: 40px;
+  margin: 0 auto;
+  position: relative;
+  bottom: 45px;
 }

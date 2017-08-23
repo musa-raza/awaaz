@@ -42,7 +42,7 @@ class Login extends React.Component {
             <button onClick={this.handleLogin} className="op-button">
               Sign In
             </button>
-            <button onClick= {this.handleSignup}className="login-button">
+            <button onClick= {this.handleSignup}className="signup-button">
               Create account
             </button>
           </div>

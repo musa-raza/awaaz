@@ -13,6 +13,7 @@ class SessionForm extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleRemove = this.handleRemove.bind(this);
+    this.handleGuest = this.handleGuest.bind(this);
   }
 
   handleChange(field) {
@@ -31,6 +32,12 @@ class SessionForm extends React.Component {
     });
   }
 
+  handleGuest(e) {
+    e.preventDefault();
+    const user = {username: "guest", password: "123456"};
+    this.props.processForm(user);
+  }
+
   handleRemove(e) {
     e.preventDefault();
     this.props.removeModal();
@@ -47,6 +54,10 @@ class SessionForm extends React.Component {
       <div className="modal-hide" onClick={this.handleRemove}>
         <div className="form-div" onClick={(e) => e.stopPropagation()}>
           <form className="session-form" onSubmit={this.handleSubmit}>
+            <div className="guest-div">
+              <button className="guest-login" onClick={this.handleGuest}>Continue as guest</button>
+            </div>
+            <h2 className="modal-divide">or</h2>
             <input
               type="text"
               className="input-username"
