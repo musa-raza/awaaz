@@ -32,6 +32,10 @@ class SessionForm extends React.Component {
     });
   }
 
+  componentDidMount() {
+    this.props.removeErrors();
+  }
+
   handleGuest(e) {
     e.preventDefault();
     const user = {username: "guest", password: "123456"};
@@ -73,10 +77,10 @@ class SessionForm extends React.Component {
              value={this.state.password}
            />
          <button className="session-button">{this.props.formType}</button>
+         <ul>
+           {errors}
+         </ul>
           </form>
-          <ul>
-            {errors}
-          </ul>
         </div>
       </div>
     </div>

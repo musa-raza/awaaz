@@ -60,13 +60,20 @@
   margin-right: 100px;
 }
 
+div.logo {
+  content:url("logo.jpg");
+  position: relative;
+  right: 750px;
+  height: 100px;
+}
+
 .login-heading {
   font-family: 'Jaldi', sans-serif;
   color: white;
   text-align: center;
   font-size: 50px;
   position: relative;
-  top: 235px;
+  top: 170px;
   margin: 0 auto;
 }
 
@@ -76,7 +83,7 @@
   text-align: center;
   font-size: 25px;
   position: relative;
-  top: 245px;
+  top: 180px;
   transition: opacity .2s linear;
   width: 40%;
   margin: 0 auto;
@@ -177,4 +184,19 @@
   margin: 0 auto;
   position: relative;
   bottom: 45px;
+  padding: 5px;
+}
+
+.modal-divide:before {
+  border: 1px solid black;
+}
+
+.modal-divide:after {
+  border: 1px solid black;
+}
+
+.errors {
+  text-align: center;
+  margin-top: 20px;
+  color: #f50;
 }

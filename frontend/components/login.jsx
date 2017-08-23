@@ -39,6 +39,7 @@ class Login extends React.Component {
       return(
         <div className="main-div">
           <div className="login-div">
+            <div className="logo"></div>
             <button onClick={this.handleLogin} className="op-button">
               Sign In
             </button>

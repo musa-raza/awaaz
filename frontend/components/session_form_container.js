@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { signup, login } from '../actions/session_actions';
+import { signup, login, receiveErrors } from '../actions/session_actions';
 import SessionForm from './session_form';
 import { receiveModal, removeModal, loginModal, signupModal} from '../actions/ui_actions';
 
@@ -19,7 +19,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   const func = ownProps.formType === 'signup' ? signup : login;
   return {
     processForm: (user) => dispatch(func(user)),
-    removeModal: () => dispatch(removeModal())
+    removeModal: () => dispatch(removeModal()),
+    removeErrors: (errors) => dispatch(receiveErrors([]))
   };
 };
 
