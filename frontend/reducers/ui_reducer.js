@@ -8,10 +8,6 @@ const initialState = {
 const uiReducer = (state = initialState, action) => {
   Object.freeze(state);
   switch(action.type) {
-    case SHOW_MODAL:
-      return({
-        modalOpen: true
-      });
     case HIDE_MODAL:
       return({
         modalOpen: false

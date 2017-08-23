@@ -37,16 +37,19 @@ class Login extends React.Component {
     }
     else {
       return(
-        <div>
-          <h2>Connect on Awaaz</h2>
-            <div className="login-text">Discover, stream and share a constantly expanding mix of music from emerging and major artists all over the world.</div>
+        <div className="main-div">
+          <div className="login-div">
+            <button onClick={this.handleLogin} className="op-button">
+              Sign In
+            </button>
+            <button onClick= {this.handleSignup}className="login-button">
+              Create account
+            </button>
+          </div>
+          <h2 className="login-heading">Connect on Awaaz</h2>
+            <div className="login-text">Discover, stream and share a constantly expanding mix of music from emerging and major artists all over the world.
+            </div>
             {form}
-          <button onClick={this.handleLogin} className="login-button">
-            Sign In
-          </button>
-          <button onClick= {this.handleSignup}className="login-button">
-            Create account
-          </button>
           </div>
       );
     }

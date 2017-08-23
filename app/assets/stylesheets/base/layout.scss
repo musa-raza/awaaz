@@ -1,0 +1,92 @@
+@import 'base/colors.scss';
+
+.formmodal {
+  position        : fixed;
+  top             : 0;
+  left            : 0;
+  right           : 0;
+  bottom          : 0;
+  background-color: rgba(255, 255, 255, 0.75);
+  z-index         : 10;
+  width: 100%;
+}
+
+.form-div{
+  padding: 50px;
+  margin: 0 auto;
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+}
+
+.session-button {
+  margin-top: 10px;
+}
+
+.session-form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.login-div {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 30px;
+}
+
+
+.main-div {
+  border-top: 5px solid $orange;
+  background-image: image-url("login-image.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 450px;
+  width: calc(100% - 200px);
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.login-heading {
+  font-family: 'Jaldi', sans-serif;
+  color: white;
+  text-align: center;
+  font-size: 50px;
+  position: relative;
+  top: 240px;
+  margin: 0 auto;
+}
+
+.login-text {
+  font-family: 'Jaldi', sans-serif;
+  color: white;
+  text-align: center;
+  font-size: 25px;
+  position: relative;
+  top: 280px;
+  transition: opacity .2s linear;
+  opacity: 0.5;
+  width: 40%;
+  margin: 0 auto;
+}
+
+.op-button {
+  background: 0 0;
+  color: white;
+  border: 1px solid white;
+  font-size: 15px;
+  border-radius: 3px;
+  border-color: white;
+  margin-right: 6px;
+  margin-top: 10px;
+  font-family: 'Jaldi', sans-serif;
+  padding: 0 15px;
+  height: 30px;
+  width: 75px;
+  text-align: center;
+}
+
+.op-button:hover {
+  outline: 0;
+  border-color: #ccc;
+}

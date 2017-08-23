@@ -40,7 +40,7 @@ sufficient CSS styling:
 
 **Objective:** Will set up a users show page. After completion, songs will be focused on and will implement songs through API.
 
-### Phase 3: Songs Model API (2 day)
+### Phase 3: Songs Model API (2 days)
 
 **Objective:** Songs can be CRUD through API and songs will have a show page.
 

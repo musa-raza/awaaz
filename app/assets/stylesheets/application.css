@@ -13,31 +13,3 @@
  *= require_tree .
  *= require_self
  */
-
-
-.formmodal{
-  position        : fixed;
-  top             : 0;
-  left            : 0;
-  right           : 0;
-  bottom          : 0;
-  background-color: rgba(255, 255, 255, 0.75);
-  z-index:         : 10;
-  width: 100%;
-}
-
-.form-div{
-  padding: 50px;
-  margin: 0 auto;
-  width: 150px;
-  display: flex;
-  flex-direction: column;
-}
-
-.session-button {
-  margin-top: 10px
-}
-
-.session-form {
-
-}
