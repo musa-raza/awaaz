@@ -22,18 +22,15 @@ class Login extends React.Component {
   }
 
   render() {
-    let darken;
     let form;
     if (this.props.modalBool) {
       form = <SessionFormContainer />;
-      darken = 'modal';
     } else {
       form = null;
     }
     if (this.props.currentUser) {
       return(
-        <div className={`form${darken}`}>
-          <h3> Welcome {this.props.currentUser.username}</h3>
+        <div className="logout-div">
           <button className="logout-button" onClick={() => this.props.logout()}>Logout</button>
         </div>
       );
@@ -44,10 +41,10 @@ class Login extends React.Component {
           <h2>Connect on Awaaz</h2>
             <div className="login-text">Discover, stream and share a constantly expanding mix of music from emerging and major artists all over the world.</div>
             {form}
-          <button onClick={this.handleLogin} className="session-button">
+          <button onClick={this.handleLogin} className="login-button">
             Sign In
           </button>
-          <button onClick= {this.handleSignup}className="session-button">
+          <button onClick= {this.handleSignup}className="login-button">
             Create account
           </button>
           </div>

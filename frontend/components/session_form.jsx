@@ -31,30 +31,35 @@ class SessionForm extends React.Component {
   }
 
   render() {
+    let darken;
+    if (this.props.formType) {
+      darken = 'modal';
+    }
   const errors = this.props.errors.map((error, idx) => <li className="errors" key={idx}>{error}</li>);
   return(
-    <div>
-      <h1>{this.props.formType}</h1>
+    <div className={`form${darken}`}>
+      <div className="form-div">
+        <form className="session-form"onSubmit={this.handleSubmit}>
+          <input
+            type="text"
+            className="input-username"
+            onChange={this.handleChange(`username`)}
+            placeholder="Username"
+            value={this.state.username}
+          />
+         <input
+           type="password"
+           className="input-username"
+           onChange={this.handleChange(`password`)}
+           placeholder="Password..."
+           value={this.state.password}
+         />
+       <button className="session-button">{this.props.formType}</button>
+        </form>
         <ul>
           {errors}
         </ul>
-      <form onSubmit={this.handleSubmit}>
-        <label htmlFor="username">Username</label>
-        <input
-          type="text"
-          id="username"
-          onChange={this.handleChange(`username`)}
-          value={this.state.username}
-        />
-       <label htmlFor="password">Password</label>
-       <input
-         type="password"
-         id="password"
-         onChange={this.handleChange(`password`)}
-         value={this.state.password}
-       />
-      <button>{this.props.formType}</button>
-      </form>
+      </div>
     </div>
     );
   }
