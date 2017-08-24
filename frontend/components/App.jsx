@@ -5,11 +5,13 @@ import SessionFormContainer from './session/session_form_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import StreamContainer from './stream/stream_container';
 import UserDetailContainer from './user/user_detail_container';
+import NavBar from './navbar';
 
 const App = () => {
   return (
     <div className="app-div">
       <AuthRoute exact path="/" component={LoginContainer} />
+      <NavBar />
       <ProtectedRoute exact path="/stream" component={StreamContainer} />
       <ProtectedRoute exact path="/users/:username" component={UserDetailContainer} />
     </div>

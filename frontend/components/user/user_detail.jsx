@@ -17,10 +17,9 @@ class UserDetail extends React.Component {
     }
     return(
       <div className="usershow-parent">
-        <NavBar props={this.props} />
         <div className="usershow-header">
-          <h1>Hello</h1>
         </div>
+        <div className="usershow-avatar"></div>
       </div>
     );
   }

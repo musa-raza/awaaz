@@ -10,7 +10,6 @@ class Stream extends React.Component {
   render() {
     return(
       <div className="logout-div">
-        <NavBar props={this.props} />
         <button className="logout-button" onClick={() => this.props.logout()}>Logout</button>
       </div>
     );

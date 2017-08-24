@@ -229,6 +229,11 @@
   background-color: $black;
   overflow: hidden;
   display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
 }
 
 .nav-bar {
@@ -236,13 +241,15 @@
   margin: 0;
   padding: 0;
   overflow: hidden;
+  width: 100%;
+  height: 100%;
   color: $black;
   display: flex;
   align-items: center;
   height: 50px;
-  position: fixed;
-  z-index: 1;
+
 }
+
 
 .nav-bar li {
   display: inline;
@@ -274,4 +281,12 @@
 
 .nav-search input {
   width: 300px;
+}
+
+.usershow-header {
+  background: linear-gradient(315deg, rgb(156, 155, 156) 0%, rgb(68, 58, 61) 100%);
+  display: flex;
+  height: 250px;
+  margin-left: 37px;
+  margin-right: 37px;
 }
