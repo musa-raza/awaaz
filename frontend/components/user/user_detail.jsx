@@ -1,5 +1,5 @@
 import React from 'react';
-
+import NavBar from '../navbar';
 class UserDetail extends React.Component {
 
 
@@ -17,6 +17,7 @@ class UserDetail extends React.Component {
     }
     return(
       <div className="usershow-parent">
+        <NavBar props={this.props} />
         <div className="usershow-header">
           <h1>Hello</h1>
         </div>

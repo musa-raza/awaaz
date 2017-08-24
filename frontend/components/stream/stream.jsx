@@ -1,4 +1,5 @@
 import React from 'react';
+import NavBar from '../navbar';
 
 class Stream extends React.Component {
 
@@ -9,6 +10,7 @@ class Stream extends React.Component {
   render() {
     return(
       <div className="logout-div">
+        <NavBar props={this.props} />
         <button className="logout-button" onClick={() => this.props.logout()}>Logout</button>
       </div>
     );

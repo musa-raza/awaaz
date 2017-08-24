@@ -224,3 +224,54 @@
   margin-top: 20px;
   color: #f50;
 }
+
+.nav-parent {
+  background-color: $black;
+  overflow: hidden;
+  display: flex;
+}
+
+.nav-bar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  color: $black;
+  display: flex;
+  align-items: center;
+  height: 50px;
+  position: fixed;
+  z-index: 1;
+}
+
+.nav-bar li {
+  display: inline;
+  font-family: 'Jaldi', sans-serif;
+
+}
+
+.nav-bar li a {
+  text-decoration: none;
+  color: $lightgrey;
+  padding: 12px;
+  width: 150px;
+  height: 46px;
+  border-right: 1px solid #111;
+}
+
+.nav-bar img {
+  background: $orange;
+  width: 50px;
+  height: 52px;
+  margin-left: 32px;
+  position: relative;
+  top: 3px;
+}
+
+.nav-search {
+  padding: 9px 10px 8px;
+}
+
+.nav-search input {
+  width: 300px;
+}
