@@ -8,9 +8,9 @@ export const receiveUser = (user) => {
   });
 };
 
-export const requestAUser = (id) => {
+export const requestAUser = (username) => {
   return (dispatch) => {
-    return APIUtil.fetchAUser(id)
+    return APIUtil.fetchAUser(username)
     .then((user) => {
       dispatch(receiveUser(user));
     });

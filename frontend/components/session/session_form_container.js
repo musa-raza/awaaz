@@ -3,7 +3,7 @@ import { signup, login, receiveErrors } from '../../actions/session_actions';
 import SessionForm from './session_form';
 import { receiveModal, removeModal, loginModal, signupModal} from '../../actions/ui_actions';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   let formType;
   formType = state.ui.formType === 'signup' ? 'Sign Up' : 'Login';
   let bool;

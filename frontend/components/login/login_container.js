@@ -7,7 +7,8 @@ import { receiveModal, removeModal, loginModal, signupModal} from '../../actions
 const mapStateToProps = (state) => {
   return({
     currentUser: state.session.currentUser,
-    modalBool: state.ui.modalOpen
+    modalBool: state.ui.modalOpen,
+    formType: state.ui.formType
   });
 };
 

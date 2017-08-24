@@ -29,7 +29,7 @@ class Login extends React.Component {
   render() {
     let form;
     if (this.props.modalBool) {
-      form = <SessionFormContainer />;
+      form = <SessionFormContainer formType={this.props.formType} />;
     } else {
       form = null;
     }
