@@ -22,7 +22,7 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token
 
 
-  has_attached_file :avatar, default_url: "/images/:style/missing.png"
+  has_attached_file :avatar, default_url: "https://s3.us-east-2.amazonaws.com/awaaz-dev/default-avatar.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
 

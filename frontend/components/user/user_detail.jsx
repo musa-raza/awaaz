@@ -1,5 +1,6 @@
 import React from 'react';
 import NavBar from '../navbar';
+import { NavLink } from 'react-router-dom';
 class UserDetail extends React.Component {
 
 
@@ -18,8 +19,17 @@ class UserDetail extends React.Component {
     return(
       <div className="usershow-parent">
         <div className="usershow-header">
+          <img className="avatar" src={this.props.user.avatar_url} />
+          <span className="userheader-name">
+            {this.props.user.username}
+          </span>
         </div>
-        <div className="usershow-avatar"></div>
+        <div className="user-links">
+          <ul className="user-options">
+            <li>All</li>
+            <li>Tracks</li>
+          </ul>
+        </div>
       </div>
     );
   }

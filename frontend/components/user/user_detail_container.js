@@ -11,7 +11,6 @@ const mapStateToProps = (state, ownProps) => {
   else {
     user = null;
   }
-
   return({
     user
   });

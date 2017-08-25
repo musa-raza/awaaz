@@ -1,98 +1,150 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { logout } from '../actions/session_actions';
 
 class NavBar extends React.Component {
 
   constructor(props) {
     super(props);
+    this.state = { open: false };
+    this.handleDrop = this.handleDrop.bind(this);
+  }
+
+  handleDrop(e) {
+    debugger;
+    e.preventDefault();
+    this.setState({
+      open: !this.state.open
+    });
   }
 
   render() {
     return (
-      <div className="nav-parent">
-        <ul className="nav-bar">
-          <li className="nav-logo">
-            <Link to="/stream">
-              <img src="https://s3.us-east-2.amazonaws.com/awaaz-dev/logo.jpg" />
-            </Link>
-          </li>
-          <li>
+      <div className="top">
+      <div className="parent-div">
+        <div className="img-div">
+          <Link to="/stream">
+            <img className="nav-logo" src="https://s3.us-east-2.amazonaws.com/awaaz-dev/logo.jpg" />
+          </Link>
+        </div>
+          <div className="nav-home">
             <Link to="/stream">
               Home
             </Link>
-          </li>
-          <li>
+          </div>
+          <div className="nav-collection">
             <Link to="/collection">
               Collection
             </Link>
-          </li>
-          <li className="nav-search">
+          </div>
+          <div className="nav-search">
             <input type="search" placeholder="Search" />
-          </li>
-          <li>
+          </div>
+          <div className="nav-upload">
             <Link to="/upload">
               Upload
             </Link>
-          </li>
-        </ul>
+          </div>
+          <div className="nav-profile">
+            <Link to={`/users/${this.props.user}`}>{this.props.user}</Link>
+          </div>
+          <div className="nav-logout">
+            <Link to='/' onClick={this.props.logout}>Logout</Link>
+          </div>
+        </div>
       </div>
+
     );
   }
 
 }
 
+const mapStateToProps = (state) => {
+  return {
+    user: state.session.currentUser.username
+  };
+};
 
-// <ul className="dropdown-menu">
-//   <li className="dropdown-menu-item">
-//     <Link to="/users/:username">
-//       Profile
-//     </Link>
-//   </li>
-//   <li className="dropdown-menu-item">
-//     <Link to="/discover">
-//       Disover
-//     </Link>
-//   </li>
-//   <li className="dropdown-menu-item">
-//     <Link to="/charts">
-//       Charts
-//     </Link>
-//   </li>
-//   <li className="dropdown-menu-item">
-//     <Link to="/">
-//       Logout
-//     </Link>
-// <nav className="nav-bar">
-//   <ul className="left-bar">
-//     <li className="logo">
-//       <Link to="/stream">
-//         <img src="app/assets/images/logo.jpg" />
-//       </Link>
-//     </li>
-//     <li className="nav-home">
-//       <Link to="/stream">
-//         Home
-//       </Link>
-//     </li>
-//     <li className="nav-collection">
-//       <Link to="/collection">
-//         Collection
-//       </Link>
-//     </li>
-//   </ul>
-//   <ul className="search-bar">
-//     <input type="search" placeholder="Search"/>
-//   </ul>
-//   <ul className="nav-right">
-//     <li className="Upload">
-//       <Link to="upload">
-//         Upload
-//       </Link>
-//     </li>
-//     <li className="nav-user">
-//       User
-//         </li>
-//       </ul>
-// </nav>
+const mapDispatchToProps = (dispatch) => {
+  return ({
+    logout: () => dispatch(logout())
+  });
+};
 
-export default NavBar;
+
+export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
+// import React from 'react';
+// import { Link, NavLink } from 'react-router-dom';
+// import { connect } from 'react-redux';
+// import { logout } from '../actions/session_actions';
+//
+// class NavBar extends React.Component {
+//
+//   constructor(props) {
+//     super(props);
+//     this.state = { open: false };
+//     this.handleDrop = this.handleDrop.bind(this);
+//   }
+//
+//   handleDrop(e) {
+//     e.preventDefault();
+//     this.setState({
+//       open: !this.state.open
+//     });
+//   }
+//
+//   render() {
+//     return (
+//       <div className="parent-div">
+//       <div className="sub-parent">
+//       <div className="img-div">
+//         <Link to="/stream">
+//           <img className="nav-logo" src="https://s3.us-east-2.amazonaws.com/awaaz-dev/logo.jpg" />
+//         </Link>
+//       </div>
+//         <div className="nav-home">
+//           <Link to="/stream">
+//             Home
+//           </Link>
+//         </div>
+//         <div className="nav-collection">
+//           <Link to="/collection">
+//             Collection
+//           </Link>
+//         </div>
+//         <div className="nav-search">
+//           <input type="search" placeholder="Search" />
+//         </div>
+//         <div className="nav-upload">
+//           <Link to="/upload">
+//             Upload
+//           </Link>
+//         </div>
+//         <div className="nav-dropdown">
+//           <ul className= {this.props.open ? "drop-active" : "hidden"} onClick={this.handleDrop}>
+//           <li><NavLink to={`/users/${this.props.user}`}>Profile</NavLink></li>
+//           <li> <a onClick={this.props.logout}>Logout</a></li>
+//         </ul>
+//         </div>
+//         </div>
+//       </div>
+//     );
+//   }
+//
+// }
+//
+// const mapStateToProps = (state) => {
+//   return {
+//     user: state.session.currentUser.username
+//   };
+// };
+//
+// const mapDispatchToProps = (dispatch) => {
+//   return ({
+//     logout: () => dispatch(logout())
+//   });
+// };
+//
+//
+// export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
