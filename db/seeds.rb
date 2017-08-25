@@ -8,5 +8,11 @@
 
 
   User.destroy_all
-  
+
   User.create!(username: 'guest', password: '123456')
+ user1 = User.create!(username: "mo", password: '123456')
+
+  Song.destroy_all
+
+
+  Song.create!(title: "pgirl", genre: "pop", description: "nice", user_id: user1.id, audio: "https://s3.us-east-2.amazonaws.com/awaaz-dev/promiscuous-girl.mp3")

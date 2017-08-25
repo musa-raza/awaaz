@@ -11,6 +11,6 @@ class Song < ApplicationRecord
 
 
   has_attached_file :audio,  default_url: "app/assets/tracks/promiscuous-girl.mp3"
- validates_attachment_content_type :track, :content_type => /\Aaudio\/.*\z/
+ validates_attachment_content_type :audio, :content_type => /\Aaudio\/.*\z/
 
 end
