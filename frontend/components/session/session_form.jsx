@@ -25,7 +25,6 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    debugger
     this.props.processForm(user);
     this.setState({
       username: "",
@@ -77,7 +76,7 @@ class SessionForm extends React.Component {
              placeholder="Password..."
              value={this.state.password}
            />
-         <button className="session-button">{this.props.formType}</button>
+         <button className="session-button" onClick={this.handleSubmit}>{this.props.formType}</button>
          <ul>
            {errors}
          </ul>
