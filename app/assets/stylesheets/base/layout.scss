@@ -507,3 +507,66 @@
 .app-div {
   display: flex;
 }
+
+
+//uploadform
+
+.upload-parentdiv {
+  position: absolute;
+  top: 50px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: $lightgrey;
+  margin-bottom: 2px;
+}
+
+.upload-img-div {
+  display: flex;
+  justify-content: flex-start;
+  padding-top: 100px;
+  box-sizing: border-box;
+  width: 350px;
+  padding-right: 120px;
+}
+
+.upload-img-div input {
+  position: relative;
+  right: 175px;
+  top: 230px;
+}
+
+
+.upload-art {
+  width: 260px;
+  height: 260px;
+}
+
+.uploadform-div {
+  width: 80%;
+  background: white;
+  margin: auto;
+  padding: 30px;
+  height: 100%;
+  justify-content: center;
+}
+
+.upload-headingdiv {
+  display: flex;
+  padding-top: 10px;
+  justify-content: center;
+  font-size: 45px;
+  font-family: 'Jaldi', sans-serif;
+}
+
+.uploadform-parent {
+  display: flex;
+  justify-content: center;
+}
+
+.form-input {
+  display: flex;
+  flex-direction: column;
+justify-content: center;
+}

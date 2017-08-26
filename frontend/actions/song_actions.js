@@ -29,3 +29,10 @@ export const requestSingleSong = (id) => {
     .then((song) => dispatch(receiveASong(song)));
   };
 };
+
+export const createSong = (song) => {
+  return (dispatch) => {
+    return APIUtil.createASong(song)
+    .then((song) => dispatch(receiveASong(song)));
+  };
+};

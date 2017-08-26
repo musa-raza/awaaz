@@ -18,3 +18,13 @@ export const deleteASong = (song) => {
     url: `api/songs/${song.id}`
   });
 };
+
+export const createASong = (formData) => {
+  return $.ajax({
+    url: '/api/songs',
+    type: 'POST',
+    processData: false,
+    contentType: false,
+    data: formData 
+  });
+};
