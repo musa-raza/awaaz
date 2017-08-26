@@ -5,6 +5,8 @@ import { configureStore } from './store/store';
 import Root from './components/root';
 import { requestAUser } from './actions/user_actions';
 import { fetchAUser } from './util/user_util';
+import { requestAllSongs , requestSingleSong } from './actions/song_actions';
+import { fetchAllSongs } from './util/song_api_util';
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -25,6 +27,9 @@ document.addEventListener('DOMContentLoaded', () => {
   window.signup = signup;
   window.fetchAUser = fetchAUser;
   window.requestAUser = requestAUser;
+  window.requestAllSongs = requestAllSongs;
+  window.requestSingleSong = requestSingleSong;
+  window.fetchAllSongs = fetchAllSongs;
   //END TESTING
   ReactDOM.render(<Root store={store} />, root);
 });
