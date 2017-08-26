@@ -3,7 +3,7 @@ import LoginContainer from './login//login_container';
 import { Route, Switch } from 'react-router-dom';
 import SessionFormContainer from './session/session_form_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import StreamContainer from './stream/stream_container';
+import StreamIndexContainer from './stream/stream_index_container';
 import UserDetailContainer from './user/user_detail_container';
 import NavBar from './navbar';
 
@@ -13,7 +13,7 @@ const App = () => {
       <ProtectedRoute path="/" component={NavBar} />
       <ProtectedRoute exact path="/users/:username" component={UserDetailContainer} />
       <Switch>
-      <ProtectedRoute exact path="/stream" component={StreamContainer}
+      <ProtectedRoute exact path="/stream" component={StreamIndexContainer}
         />
       <AuthRoute exact path="/" component={LoginContainer} />
       </Switch>

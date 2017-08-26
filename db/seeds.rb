@@ -9,7 +9,7 @@
 
   User.destroy_all
 
-  User.create!(username: 'guest', password: '123456')
+  User.create!(username: 'Guest', password: '123456')
  user1 = User.create!(username: "mo", password: '123456')
 
   Song.destroy_all

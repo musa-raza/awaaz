@@ -24,6 +24,12 @@
   margin-top: 10px;
 }
 
+.hidden {
+  display: none;
+}
+
+
+
 .session-form {
   box-sizing: border-box;
   background-color: white;
@@ -249,7 +255,8 @@
   display: flex;
   margin: auto;
   position: fixed;
-  background-color: $lightgrey;
+  background-color: $black;
+  z-index: 5;
 }
 
 .parent-div {
@@ -271,12 +278,111 @@
   border-right: 1px solid #111;
   text-align: center;
   padding: 15px;
+  font-size: 24px;
+  font-family: 'Jaldi', sans-serif;
+  text-decoration: none;
+  color: white;
+  display: flex;
+  flex-direction: row;
+}
+
+.navimg-div {
+  display: flex;
+  flex-direction: column;
+  width: 30px;
+  padding-left: 6px;
+  align-items: flex-end;
+  box-sizing: border-box;
+}
+
+.active {
+
+  display: flex;
+
+  flex-direction: column;
+}
+
+
+.dropdown-li {
+  background: $black;
+  font-size: 15px;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  background-color: $black;
+  position: relative;
+  left: 144px;
+  border: 1px solid black;
+  width: 120px;
+  min-width: 120px;
+  padding-right: 120px;
+  box-shadow: 3px 8px 16px 3px rgba(0, 0, 0, 0.6);
+  z-index: 40;
+  text-decoration: none;
+  align-items: center;
+  justify-content: baseline;
+
+}
+
+
+
+
+.dropdown-li:first-child{
+  background: $black;
+  font-size: 15px;
+  margin-top: 12.1px;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: row;
+  background-color: $black;
+  position: relative;
+  left: 144px;
+  border: 1px solid black;
+  width: 120px;
+  min-width: 120px;
+  padding-right: 120px;
+  box-shadow: 3px 8px 16px 3px rgba(0, 0, 0, 0.6);
+  z-index: 40;
+  text-decoration: none;
+  align-items: center;
+  justify-content: baseline;
+}
+
+.dropdown-li {
+  margin-top: none;
+  padding-left: 0px;
+  padding-right: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  justify-content: center;
+  align-items: baseline;
+  width: 220px;
+}
+
+.dropdown-li a {
+  padding: 9px
+}
+
+.dropdown-logout a {
+ padding: 9px;
+}
+
+.nav-profile img {
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  padding-left: 3px;
 }
 
 .nav-logout {
   border-right: 1px solid #111;
   text-align: center;
   padding: 15px;
+}
+
+.dropdown-div {
+  display: flex;
+  flex-direction: column;
 }
 
 .parent-div a {

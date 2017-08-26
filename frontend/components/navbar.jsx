@@ -9,17 +9,24 @@ class NavBar extends React.Component {
     super(props);
     this.state = { open: false };
     this.handleDrop = this.handleDrop.bind(this);
+    this.setFalse = this.setFalse.bind(this);
   }
 
   handleDrop(e) {
-    debugger;
     e.preventDefault();
     this.setState({
       open: !this.state.open
     });
   }
 
-  render() {
+
+  setFalse(){
+    this.setState({
+      open: false
+    });
+  }
+
+   render() {
     return (
       <div className="top">
       <div className="parent-div">
@@ -29,12 +36,12 @@ class NavBar extends React.Component {
           </Link>
         </div>
           <div className="nav-home">
-            <Link to="/stream">
+            <Link onClick={this.setFalse} to="/stream" >
               Home
             </Link>
           </div>
           <div className="nav-collection">
-            <Link to="/collection">
+            <Link onClick={this.setFalse} to="/collection">
               Collection
             </Link>
           </div>
@@ -42,15 +49,28 @@ class NavBar extends React.Component {
             <input type="search" placeholder="Search" />
           </div>
           <div className="nav-upload">
-            <Link to="/upload">
+            <Link onClick={this.setFalse} to="/upload">
               Upload
             </Link>
           </div>
           <div className="nav-profile">
-            <Link to={`/users/${this.props.user}`}>{this.props.user}</Link>
+            <div onClick={this.handleDrop}>{this.props.user.username}</div><div className="navimg-div"><img onClick={this.handleDrop} src={this.props.user.avatar_url}/>
+            <div className="dropdown-div">
+              <ul className={this.state.open ? "active" : "hidden"}>
+                <li className="dropdown-li" onClick={this.handleDrop}>
+                  <Link to={`/users/${this.props.user.username}`}>
+                    Profile
+                  </Link>
+                </li>
+                <li className="dropdown-li" onClick={this.handleDrop}>
+                  <a onClick={this.logout} >Logout</a>
+                </li>
+              </ul>
+            </div>
+            </div>
           </div>
           <div className="nav-logout">
-            <Link to='/' onClick={this.props.logout}>Logout</Link>
+            <a onClick={this.props.logout}>Logout</a>
           </div>
         </div>
       </div>
@@ -62,7 +82,7 @@ class NavBar extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    user: state.session.currentUser.username
+    user: state.session.currentUser
   };
 };
 
