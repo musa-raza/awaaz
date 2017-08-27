@@ -1,5 +1,7 @@
 @import 'base/colors.scss';
 
+//login/signup page
+
 .formmodal {
   position        : fixed;
   top             : 0;
@@ -230,25 +232,6 @@
   margin-top: 20px;
   color: #f50;
 }
-//
-// .parent-div {
-//   background-color: $black;
-//   overflow: hidden;
-//   display: flex;
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   right: 0;
-//   z-index: 2;
-// }
-//
-// .parent-div a {
-//   text-decoration: none;
-//   font-family: 'Jaldi', sans-serif;
-//   font-size: 24px;
-//   color: $lightgrey;
-//
-// }
 
 .top {
   width: 100%;
@@ -273,6 +256,8 @@
   text-decoration: none;
   color: white;
 }
+
+//navbar
 
 .nav-profile {
   border-right: 1px solid #111;
@@ -444,6 +429,8 @@
   width: 300px;
 }
 
+
+// usershow page
 .usershow-parent {
   position: absolute;
   top: 50px;
@@ -506,6 +493,7 @@
 
 .app-div {
   display: flex;
+  background: $lightgrey;
 }
 
 
@@ -535,6 +523,7 @@
   position: relative;
   right: 175px;
   top: 230px;
+  height: 20px;
 }
 
 
@@ -544,12 +533,13 @@
 }
 
 .uploadform-div {
-  width: 80%;
+  width: 75%;
   background: white;
   margin: auto;
   padding: 30px;
   height: 100%;
   justify-content: center;
+  box-sizing: border-box;
 }
 
 .upload-headingdiv {
@@ -563,10 +553,133 @@
 .uploadform-parent {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .form-input {
   display: flex;
   flex-direction: column;
-justify-content: center;
+  justify-content: center;
+  padding-top: 100px;
+}
+
+.border-div {
+  box-sizing: border-box;
+  box-shadow: 10px 10px 5px #888888;
+  border: 2px solid $lightgrey;
+  padding-bottom: 100px;
+}
+
+.title-input {
+  height: 20px;
+  border: 1px solid $orange;
+  border-radius: 3px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.form-field {
+  font-size: 20px;
+  padding: 7px 7px 7px 0px;
+  font-family: 'Jaldi', sans-serif;
+}
+
+textarea.title-input  {
+  height: 50px;
+}
+
+.upload-button {
+  display: flex;
+  justify-content: center;
+  padding-top: 40px;
+}
+
+.u-button {
+  border-radius: 3px;
+  border: 1px solid $orange;
+  width: 130px;
+  height: 30px;
+  color: white;
+  background-color: $orange;
+  margin-top: 15px;
+  font-family: 'Jaldi', sans-serif;
+  font-size: 15px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+
+//audio-player
+
+.audio-parent{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 50px;
+  flex-direction: column;
+  margin-bottom: 2px;
+  background: $lightgrey;
+  box-sizing: border-box;
+}
+
+.headings-div {
+  margin: 20px;
+  padding: 30px 30px 0 0;
+  display: flex;
+  flex-direction: column;
+  width: 73.5%;
+  justify-content: flex-start;
+  background: white;
+  margin: auto;
+  align-items:center;
+}
+
+.audio-div {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+}
+
+.stream-heading {
+  font-family: 'Jaldi', sans-serif;
+  font-size: 24px;
+  margin: 5px;
+  text-decoration: none;
+
+}
+
+.stream-heading:active {
+  color: $orange;
+  border-color: $orange;
+}
+
+.index-div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  margin-left: 15px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid $lightgrey;
+}
+
+.stream-index {
+  display: flex;
+  width: 100%;
+  margin: auto;
+  align-items: flex-start;
+  flex-direction: column;
+  background: white;
+  margin: 30px 0px 0px 30px;
+}
+
+.stream-text {
+  margin-bottom: 25px;
+  font-size: 25px;
+  display: flex;
+  flex-direction: row;
+  color: $lightgrey;
+  font-family: 'Jaldi', sans-serif;
 }

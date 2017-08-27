@@ -1,4 +1,6 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+import StreamIndexItem from './stream_index_item';
 
 class StreamIndex extends React.Component {
 
@@ -12,14 +14,37 @@ class StreamIndex extends React.Component {
 
   render() {
     const SongItems = this.props.songs.map((song) => {
-    return (<audio key={song.id} controls><source src={song.audio_url} type="audio/mpeg"></source></audio>);
+    return <StreamIndexItem song={song} user={song.user} />;
   });
     return(
       <div className="audio-parent">
-        {SongItems}
+        <div className="headings-div">
+          <div className="index-div">
+          <div>
+            <NavLink className="stream-heading" to='/stream'> Stream</NavLink>
+          </div>
+          <div>
+            <NavLink className="stream-heading" to='/charts'>Charts</NavLink>
+          </div>
+          <div>
+            <NavLink className="stream-heading" to='/discover'>Discover</NavLink>
+          </div>
+        </div>
+        <div className="stream-index">
+          <div className="stream-text">
+            <span>Hear the latest posts from the Awaaz community:</span>
+          </div>
+          <div className="audio-div">
+            {SongItems}
+          </div>
       </div>
+      </div>
+    </div>
     );
   }
 }
 
 export default StreamIndex;
+
+
+// (<audio key={song.id} controls><source src={song.audio_url} type="audio/mpeg"></source></audio>)

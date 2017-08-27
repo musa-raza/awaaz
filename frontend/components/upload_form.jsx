@@ -56,6 +56,7 @@ class UploadForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    debugger
     const formData = new FormData();
     formData.append("song[title]", this.state.title);
     formData.append("song[genre]", this.state.genre);
@@ -70,37 +71,39 @@ class UploadForm extends React.Component {
     return(
       <div className="upload-parentdiv">
         <div className="uploadform-div">
-          <div className="upload-headingdiv">
-            <h2>Upload a track to Awaaz</h2>
-          </div>
-          <div className="uploadform-parent">
-            <div className="upload-img-div">
-              <img className="upload-art" src="https://s3.us-east-2.amazonaws.com/awaaz-dev/default-audio-art.png "/>
-              <input type="file" onChange={this.updateSongArt} />
+          <div className="border-div">
+            <div className="upload-headingdiv">
+              <h2>Upload a track to Awaaz</h2>
             </div>
-            <div className="form-input">
-            <label className="form-field">Title</label>
-            <input type="text"
-              value={this.state.title}
-              onChange={this.update('title')}
-              className="title-input" />
-            <label className="form-field">Genre</label>
-            <input type="text"
-              value={this.state.genre}
-              onChange={this.update('genre')}
-              className="title-input" />
-            <label className="form-field">Description</label>
-            <textarea type="text"
-              value={this.state.description}
-              onChange={this.update('description')}
-              className="title-input" />
-            <label className="form-field">Track</label>
-            <input type="file" onChange={this.updateSong} />
-          </div>
-          </div>
-          <div className="upload-button">
-            <button className="u-button" onClick={this.handleSubmit}>Upload Song!
-            </button>
+            <div className="uploadform-parent">
+              <div className="upload-img-div">
+                <img className="upload-art" src="https://s3.us-east-2.amazonaws.com/awaaz-dev/default-audio-art.png "/>
+                <input type="file" onChange={this.updateSongArt} />
+              </div>
+              <div className="form-input">
+              <label className="form-field">Title</label>
+              <input type="text"
+                value={this.state.title}
+                onChange={this.update('title')}
+                className="title-input" />
+              <label className="form-field">Genre</label>
+              <input type="text"
+                value={this.state.genre}
+                onChange={this.update('genre')}
+                className="title-input" />
+              <label className="form-field">Description</label>
+              <textarea type="text"
+                value={this.state.description}
+                onChange={this.update('description')}
+                className="title-input" />
+              <label className="form-field">Track</label>
+              <input type="file" onChange={this.updateSong} />
+            </div>
+            </div>
+            <div className="upload-button">
+              <button className="u-button" onClick={this.handleSubmit}>Upload Song!
+              </button>
+            </div>
           </div>
         </div>
       </div>
