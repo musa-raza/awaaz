@@ -1,4 +1,4 @@
-json.extract! song, :id, :title, :genre, :user_id, :description
+json.extract! song, :id, :title, :genre, :user_id, :description, :created_at
 json.image_url asset_path(song.image.url)
 json.audio_url asset_path(song.audio.url)
 

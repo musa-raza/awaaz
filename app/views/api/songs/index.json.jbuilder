@@ -1,6 +1,6 @@
 @songs.each do |song|
   json.set! song.id do
-    json.extract! song, :id, :title, :genre
+    json.extract! song, :id, :title, :genre, :description, :created_at
     json.image_url asset_path(song.image.url)
     json.audio_url asset_path(song.audio.url)
     json.user do

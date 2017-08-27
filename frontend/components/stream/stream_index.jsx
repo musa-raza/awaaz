@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import StreamIndexItem from './stream_index_item';
 
+
 class StreamIndex extends React.Component {
 
   constructor(props) {
@@ -14,7 +15,7 @@ class StreamIndex extends React.Component {
 
   render() {
     const SongItems = this.props.songs.map((song) => {
-    return <StreamIndexItem song={song} user={song.user} />;
+    return <StreamIndexItem song={song} user={song.user} key={song.id} />;
   });
     return(
       <div className="audio-parent">

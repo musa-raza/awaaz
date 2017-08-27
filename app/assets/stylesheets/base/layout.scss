@@ -683,3 +683,78 @@ textarea.title-input  {
   color: $lightgrey;
   font-family: 'Jaldi', sans-serif;
 }
+
+
+//player-info
+
+.play-parent {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: flex-start;
+  padding-bottom: 25px;
+}
+
+.artist-img-div {
+  height: 35px;
+}
+
+.artist-info-div {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 18px;
+  text-decoration: none;
+  justify-content: center;
+}
+
+.play-artist-pic {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+.artist-post-info {
+  font-family: 'Jaldi', sans-serif;
+  font-size: 18px;
+  color: grey;
+  align-items: flex-end;
+  margin-left: 12px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.artist-post-info a {
+  text-decoration: none;
+  color: grey;
+  padding-right: 2px;
+}
+
+.flex-row-div {
+  display: flex;
+  flex-direction: row;
+}
+
+.albumart-div {
+  height: 160px;
+  width: 160px;
+  display: flex;
+}
+
+.albumart-div img {
+  width: 100%;
+}
+
+.song-info-div {
+  display: flex;
+  flex-direction: row;
+}
+
+.playbutton-div {
+  padding: 5px;
+}
+
+.artistpos-songart-div {
+  display: flex;
+  flex-direction: column;
+}
