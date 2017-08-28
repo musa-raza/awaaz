@@ -7,9 +7,9 @@ const userReducer = (state = {}, action) => {
   let newState;
   switch(action.type){
     case RECEIVE_USER:
-      newState = merge({}, state);
-      newState[action.user.username] = action.user;
-      return newState;
+    newState = merge({}, state);
+    newState[action.user.username] = action.user;
+    return newState;
     default:
       return state;
   }
@@ -17,3 +17,6 @@ const userReducer = (state = {}, action) => {
 
 
 export default userReducer;
+
+// newState = merge({}, state);
+// newState[action.user.username] = action.user;

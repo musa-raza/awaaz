@@ -5,7 +5,7 @@ class Api::SongsController < ApplicationController
   end
 
   def index
-    @songs = Song.all
+    @songs = Song.all.includes(:user)
   end
 
   def edit

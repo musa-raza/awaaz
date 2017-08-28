@@ -1,6 +1,8 @@
 import React from 'react';
 import NavBar from '../navbar';
 import { NavLink } from 'react-router-dom';
+import StreamIndexItem from '../stream/stream_index_item';
+
 class UserDetail extends React.Component {
 
 
@@ -29,6 +31,11 @@ class UserDetail extends React.Component {
             <li>All</li>
             <li>Tracks</li>
           </ul>
+          <div className="usersong-parent">
+            <div className="user-songs">
+              {this.props.songs.map(song => <StreamIndexItem key={song.id} song={song} />)}
+            </div>
+          </div>
         </div>
       </div>
     );

@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import UserDetail from './user_detail';
 import { requestAUser } from '../../actions/user_actions';
 import { withRouter } from 'react-router-dom';
+import { selectUserSongs } from '../../reducers/selectors';
 
 const mapStateToProps = (state, ownProps) => {
   let user;
@@ -12,7 +13,8 @@ const mapStateToProps = (state, ownProps) => {
     user = null;
   }
   return({
-    user
+    user,
+    songs: selectUserSongs(state, user)
   });
 };
 

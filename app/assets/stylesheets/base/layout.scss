@@ -489,11 +489,23 @@
   background: white;
   width: 75%;
   margin: auto;
+  flex-direction: column;
 }
 
 .app-div {
   display: flex;
   background: $lightgrey;
+}
+
+.user-songs {
+  width: 90%;
+  margin: auto;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  padding-left: 25px;
+  justify-content: flex-start;
+  margin: 20px 0px 20px;
 }
 
 
@@ -750,11 +762,58 @@ textarea.title-input  {
   flex-direction: row;
 }
 
-.playbutton-div {
-  padding: 5px;
+
+.artistpost-songart-div {
+  display: flex;
+  flex-direction: row;
 }
 
-.artistpos-songart-div {
+.playbutton-div {
+  display: flex;
+  margin-left:  20px;
+  flex-direction: row;
+  background: $orange;
+  border: 2px solid white;
+  border-radius: 50%;
+  color: white;
+  align-items: center;
+  height: 70px;
+}
+
+.playbutton-div i {
+  display: flex;
+  width: 70px;
+  font-size: 30px;
+  justify-content: center;
+}
+
+.songplay-div {
   display: flex;
   flex-direction: column;
+  justify-content: baseline;
+  align-items: center;
+  font-family: 'Jaldi', sans-serif;
+  height: 50px;
+  width: 500px;
+  padding-left: 10px;
+}
+
+.songartist {
+  display: flex;
+  align-self: baseline;
+  color: grey;
+  font-size: 18px;
+}
+
+.songtitle {
+  color: black;
+  font-size: 20px;
+  display: flex;
+  align-self: baseline;
+}
+
+.button-parent {
+  display: flex;
+  flex-direction: row;
+  height: 200px;
 }

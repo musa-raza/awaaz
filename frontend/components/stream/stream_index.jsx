@@ -15,7 +15,7 @@ class StreamIndex extends React.Component {
 
   render() {
     const SongItems = this.props.songs.map((song) => {
-    return <StreamIndexItem song={song} user={song.user} key={song.id} />;
+    return <StreamIndexItem song={song} key={song.id} />;
   });
     return(
       <div className="audio-parent">
