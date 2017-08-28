@@ -18,23 +18,9 @@ class PlayButton extends React.Component {
 
   render() {
     return(
-    <div className="button-parent">
-      <div className="playbutton-div">
+      <div className="playbuttonshow-div">
           <i className={this.state.pause ? "fa fa-pause" : "fa fa-play"} aria-hidden="true" onClick={this.handlePlayPause}></i>
       </div>
-      <div className="songplay-div">
-        <span className="songartist">
-          <Link to={`/users/${this.props.name}`}>
-            {this.props.name}
-          </Link>
-        </span>
-        <span className="songtitle">
-          <Link to={`/songs/${this.props.id}`}>
-            {this.props.title}
-          </Link>
-        </span>
-      </div>
-    </div>
 
   );
   }

@@ -801,19 +801,142 @@ textarea.title-input  {
 .songartist {
   display: flex;
   align-self: baseline;
-  color: grey;
+  width:auto;
   font-size: 18px;
 }
 
+.songartist a {
+  text-decoration: none;
+  color: grey;
+}
+
 .songtitle {
-  color: black;
+
   font-size: 20px;
   display: flex;
   align-self: baseline;
+}
+
+.songtitle a {
+  text-decoration: none;
+  color: black;
 }
 
 .button-parent {
   display: flex;
   flex-direction: row;
   height: 200px;
+  width: 300px;
+}
+
+
+//songshow
+
+.songshow-parent {
+  position: absolute;
+  top: 50px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: $lightgrey;
+  margin-bottom: 2px;
+}
+
+.songshow-header {
+  background: url(https://s3.us-east-2.amazonaws.com/awaaz-dev/song-show-art.jpg);
+  background-position: center;
+  background-size: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin: auto;
+  height: 380px;
+  width: 75%;
+  min-width: 1000px;
+}
+
+
+  .alb-div {
+    display: flex;
+
+  }
+
+
+.songshow-albumart{
+  display: flex;
+  height: 310px;
+  width: 310px;
+  padding-right: 40px;
+}
+
+.songheader-name {
+  color: white;
+  background: black;
+  font-size: 50px;
+  font-family: 'Jaldi', sans-serif;
+  padding: 3px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.song-info {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.songheader-title {
+  color: white;
+  background: black;
+  font-size: 50px;
+  font-family: 'Jaldi', sans-serif;
+  padding: 3px;
+  text-align: center;
+}
+
+.songshow-info {
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: flex-start;
+  position: relative;
+  right: 12%;
+  padding-left: 50px;
+}
+
+
+.playbuttonshow-div {
+  display: flex;
+  margin-left:  30px;
+  flex-direction: row;
+  background: $orange;
+  border: 2px solid white;
+  border-radius: 50%;
+  color: white;
+  align-items: center;
+  height: 70px;
+}
+
+.playbuttonshow-div i {
+  display: flex;
+  width: 70px;
+  font-size: 30px;
+  justify-content: center;
+}
+
+.button-div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.moment-text {
+  color: white;
+  padding-right: 14px;
+  font-size: 20px;
+  font-family: 'Jaldi', sans-serif;
+  text-align: center;
 }

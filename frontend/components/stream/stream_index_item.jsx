@@ -13,7 +13,6 @@ class StreamIndexItem extends React.Component {
 
 
   render() {
-    debugger
     let dateFormat = this.props.song.created_at;
     return(
     <div className="play-parent">
@@ -31,7 +30,10 @@ class StreamIndexItem extends React.Component {
         <div className="artistpost-songart-div">
           <div className="albumart-div">
            <img src={this.props.song.image_url}></img>
-           <PlayButton name={this.props.song.user_name} title={this.props.song.title} />
+           <PlayButton
+             id={this.props.song.id}
+              name={this.props.song.user_name} title={this.props.song.title}
+            />
          </div>
 
         </div>
