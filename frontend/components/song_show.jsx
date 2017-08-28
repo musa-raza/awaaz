@@ -42,12 +42,6 @@ render() {
           </div>
         </div>
       </div>
-      <div className="comment-div">
-        <input className="comment-input" type="text" />
-      </div>
-      <div className="comments">
-
-      </div>
       </div>
   );
 }

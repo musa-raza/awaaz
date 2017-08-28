@@ -9,7 +9,7 @@ json.songs do
       json.image_url asset_path(song.image.url)
       json.audio_url asset_path(song.audio.url)
       json.user_id song.user.id
-      json.user_avatar_url song.user.avatar.url
+      json.user_avatar_url asset_path(song.user.avatar.url)
       json.user_name song.user.username
      end
   end
