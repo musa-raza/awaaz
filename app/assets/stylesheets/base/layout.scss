@@ -345,7 +345,8 @@
 }
 
 .dropdown-li a {
-  padding: 9px
+  padding: 9px;
+  cursor: pointer;
 }
 
 .dropdown-logout a {
@@ -939,4 +940,152 @@ textarea.title-input  {
   font-size: 20px;
   font-family: 'Jaldi', sans-serif;
   text-align: center;
+}
+
+
+// commentform
+
+.comment-parent {
+  width: 74%;
+  margin: auto;
+  display: flex;
+  background: white;
+  justify-content: center;
+  padding: 10px 0px 0px 10px;
+  height: 100px;
+  align-items: center;
+  border-bottom: 1px solid $lightgrey;
+}
+
+.comment-input {
+  height: 20px;
+  font-family: 'Jaldi', sans-serif;
+  width: 75%;
+  padding: 2px;
+  font-size: 15px;
+}
+
+.commentimg-div {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.commentimg {
+  width: 50px;
+  height: 50px;
+}
+
+.comment-button {
+  border-radius: 3px;
+  border: 1px solid $orange;
+  width: 70px;
+  height: 28px;
+  color: white;
+  margin-left: 4px;
+  background-color: $orange;
+  font-family: 'Jaldi', sans-serif;
+  font-size: 15px;
+}
+
+//comment-index
+
+.comment-index {
+  display: flex;
+  flex-direction: row;
+  width: 74%;
+  justify-content: space-between;
+  margin: auto;
+  background: white;
+  padding: 10px 0px 0px 10px;
+
+}
+
+.comment-authordiv {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px 0px 0px 10px;
+  padding-bottom: 10px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid $lightgrey;
+}
+
+.comment-authordiv img {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.comment-items  {
+  display: flex;
+  list-style: none;
+  margin: 5px;
+  padding-left: 5px;
+  width: 100px;
+  border-bottom: 1px $lightgrey;
+  font-size: 20px;
+  font-family: 'Jaldi', sans-serif;
+}
+
+.comment-uldiv {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  justify-content: flex-start;
+  padding-right: 100px;
+}
+
+.comment-albumart {
+  width: 200px;
+  height: 200px;
+  margin-top: 20px;
+  margin-left: 28px;
+}
+
+.songshow-commentphotodiv {
+  padding: none;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.comment-artistinfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.bold-heading {
+  font-size: 20px;
+  font-family: 'Jaldi', sans-serif;
+  font-weight: bold;
+  color: $black;
+  padding-top: 10px;
+  margin-top: 15px;
+  margin-left: 28px;
+}
+
+.comment-text {
+  font-size: 18px;
+  font-family: 'Jaldi', sans-serif;
+  color: grey;
+  margin-top: 15px;
+  margin-left: 28px;
+}
+
+.comment-containerdiv {
+  width: 100%;
+  height: 100%;
+}
+
+.trash-div {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }

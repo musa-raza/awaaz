@@ -4,6 +4,9 @@ import { withRouter } from 'react-router-dom';
 import { requestSingleSong } from '../actions/song_actions';
 import  PlayButtonShow from './play_button_show';
 import Moment from 'react-moment';
+import CommentIndex from './comments/comment_index';
+import CommentContainer from './comments/comment_container';
+
 class SongShow extends React.Component {
 
 constructor(props) {
@@ -42,6 +45,8 @@ render() {
           </div>
         </div>
       </div>
+      <div className="comment-containerdiv"></div>
+      <CommentContainer song={this.props.song}/>
       </div>
   );
 }

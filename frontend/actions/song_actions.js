@@ -2,10 +2,10 @@ import * as APIUtil from '../util/song_api_util';
 export const RECEIVE_A_SONG = 'RECEIVE_A_SONG';
 export const RECEIVE_SONGS = 'RECEIVE_SONGS';
 
-export const receiveAllSongs = (songs) => {
+export const receiveAllSongs = (payload) => {
   return({
     type: RECEIVE_SONGS,
-    songs
+    payload,
   });
 };
 

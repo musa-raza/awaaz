@@ -2,6 +2,7 @@ class Song < ApplicationRecord
 
   validates :title, :genre, :user, :description, presence: true
 
+  has_many :comments
 
   belongs_to :user
 

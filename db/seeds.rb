@@ -15,4 +15,15 @@
   Song.destroy_all
 
 
-  Song.create!(title: "pgirl", genre: "pop", description: "nice", user_id: user1.id, audio: "https://s3.us-east-2.amazonaws.com/awaaz-dev/promiscuous-girl.mp3")
+  song1 = Song.create!(title: "pgirl", genre: "pop", description: "nice", user_id: user1.id, audio: "https://s3.us-east-2.amazonaws.com/awaaz-dev/promiscuous-girl.mp3")
+
+
+  Comment.destroy_all
+
+  comment1 = Comment.create!(body: "nice song", user_id: user1.id, song_id: song1.id)
+
+  comment2 = Comment.create!(body: "woah song", user_id: user1.id, song_id: song1.id)
+
+  comment3 = Comment.create!(body: "great song", user_id: user1.id, song_id: song1.id)
+
+  

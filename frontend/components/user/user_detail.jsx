@@ -15,6 +15,7 @@ class UserDetail extends React.Component {
   }
 
   render() {
+    debugger
     if (this.props.user === null) {
       return null;
     }

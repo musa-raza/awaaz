@@ -7,7 +7,8 @@ import { requestAUser } from './actions/user_actions';
 import { fetchAUser } from './util/user_util';
 import { requestAllSongs , requestSingleSong } from './actions/song_actions';
 import { fetchAllSongs } from './util/song_api_util';
-
+import { createAComment } from './util/comment_api_util';
+import { createComment }  from './actions/comment_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
@@ -30,6 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
   window.requestAllSongs = requestAllSongs;
   window.requestSingleSong = requestSingleSong;
   window.fetchAllSongs = fetchAllSongs;
+  window.createAComment = createAComment;
+  window.createComment = createComment;
   //END TESTING
   ReactDOM.render(<Root store={store} />, root);
 });

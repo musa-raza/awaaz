@@ -7,3 +7,8 @@ export const selectAllSongs = (state) => {
 export const selectUserSongs = (state, user) => {
   return user ? user.song_ids.map(id => user.songs[id]) : [];
 };
+
+export const selectSongComments = (state, song) => {
+  debugger
+  return song ? song.comment_ids.map(id => state.entities.comments[id]) : [];
+};
