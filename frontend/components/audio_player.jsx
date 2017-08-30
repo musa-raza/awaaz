@@ -82,7 +82,6 @@ class AudioPlayer extends React.Component {
               <div className="elapsedTime">
 
               </div>
-              <Progress className="progress-bar"></Progress>
             </div>
             <audio id="audio"></audio>
           </div>
