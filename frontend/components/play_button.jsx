@@ -1,26 +1,33 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { playSong, pauseSong } from '../actions/audio_actions';
+import { connect } from 'react-redux';
 
 class PlayButton extends React.Component {
 
-  constructor() {
-    super();
-    this.state = { pause: false };
+  constructor(props) {
+    super(props);
     this.handlePlayPause = this.handlePlayPause.bind(this);
   }
 
+
   handlePlayPause(e) {
     e.preventDefault();
-    this.setState({
-      pause: !this.state.pause
-    });
+    this.props.setQueue(this.props.songId);
+    if (this.props.status === 'playing'  && this.props.songId === this.props.currentTrack) {
+      this.props.pauseSong();
+    } else {
+      this.props.playSong();
+    }
   }
+
+
 
   render() {
     return(
     <div className="button-parent">
       <div className="playbutton-div">
-          <i className={this.state.pause ? "fa fa-pause" : "fa fa-play"} aria-hidden="true" onClick={this.handlePlayPause}></i>
+          <i className={(this.props.currentTrack === this.props.songId && this.props.status === 'playing') ? "fa fa-pause" : "fa fa-play"} aria-hidden="true" onClick={this.handlePlayPause}></i>
       </div>
       <div className="songplay-div">
         <span className="songartist">
@@ -40,4 +47,18 @@ class PlayButton extends React.Component {
   }
 }
 
-export default PlayButton;
+const mapStateToProps = (state) => {
+  return ({
+      currentTrack: state.audio.currentTrackId,
+      status: state.audio.status
+    });
+  };
+
+const mapDispatchToProps = (dispatch) => {
+  return({
+    playSong: () => dispatch(playSong()),
+    pauseSong: () => dispatch(pauseSong())
+  });
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(PlayButton);

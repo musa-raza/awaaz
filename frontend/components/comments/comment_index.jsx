@@ -16,12 +16,15 @@ class CommentIndex extends React.Component {
     const CommentItems = this.props.comments.map((comment) => {
       return (
         <div key={comment.id} className="comment-authordiv">
-          <Link to={`/users/${comment.user_name}`}>
-            <img src={comment.user_pic}/>
-          </Link>
+          <div className="userdivs">
+            <Link to={`/users/${comment.user_id}`}>
+              <img src={comment.user_pic}/>
+            </Link>
+            <span className="userlinks">{comment.user_name}</span>
+          </div>
           <li className="comment-items">{comment.body}</li>
           <div className="trash-div">
-            <i className="fa fa-trash" aria-hidden="true"></i>
+            <i className="fa fa-trash" aria-hidden="true" ></i>
           </div>
         </div>
         );

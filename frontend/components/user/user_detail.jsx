@@ -14,8 +14,11 @@ class UserDetail extends React.Component {
     this.props.requestAUser(this.props.match.params.username);
   }
 
+  setQueue(id) {
+    this.props.setUserQueue(this.props.songs, id);
+  }
+
   render() {
-    debugger
     if (this.props.user === null) {
       return null;
     }
@@ -34,7 +37,7 @@ class UserDetail extends React.Component {
           </ul>
           <div className="usersong-parent">
             <div className="user-songs">
-              {this.props.songs.map(song => <StreamIndexItem key={song.id} song={song} />)}
+              {this.props.songs.map(song => <StreamIndexItem key={song.id} song={song} songs={this.props.songs} setQueue={this.setQueue.bind(this)}/>)}
             </div>
           </div>
         </div>

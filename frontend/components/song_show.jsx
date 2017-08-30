@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { requestSingleSong } from '../actions/song_actions';
-import  PlayButtonShow from './play_button_show';
+import PlayButtonShow from './play_button_show';
+import { setQueue } from '../actions/audio_actions';
 import Moment from 'react-moment';
 import CommentIndex from './comments/comment_index';
 import CommentContainer from './comments/comment_container';
@@ -17,6 +18,10 @@ componentDidMount() {
   this.props.requestSingleSong(this.props.match.params.songId);
 }
 
+setQueue(id) {
+  this.props.setQueue(this.props.song, id);
+}
+
 render() {
   if (this.props.song === null) {
     return null;
@@ -29,6 +34,9 @@ render() {
           <div className="button-div">
             <PlayButtonShow
               id={this.props.song.id}
+              setQueue={this.setQueue.bind(this)}
+              song={this.props.song}
+              songId={this.props.songId}
               />
             <div className="songshow-info">
               <span className="songheader-name">
@@ -68,7 +76,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return({
-    requestSingleSong: (song) => (dispatch(requestSingleSong(song)))
+    requestSingleSong: (song) => (dispatch(requestSingleSong(song))),
+    setQueue: (song, id) => (dispatch(setQueue(song, id)))
   });
 };
 

@@ -10,20 +10,32 @@
   User.destroy_all
 
   User.create!(username: 'Guest', password: '123456')
- user1 = User.create!(username: "mo", password: '123456')
+ user1 = User.create!(username: "alpha", password: '123456')
+ user2 = User.create!(username: "bravo", password: '123456')
 
   Song.destroy_all
 
 
-  song1 = Song.create!(title: "pgirl", genre: "pop", description: "nice", user_id: user1.id, audio: "https://s3.us-east-2.amazonaws.com/awaaz-dev/promiscuous-girl.mp3")
+song1 = Song.create!(
+  title: "cow moo",
+  genre: "animal",
+  description: "nice",
+  user_id: user1.id,
+  audio: "https://s3.us-east-2.amazonaws.com/awaaz-dev/Cow+moo+sound+effect.mp3"
+)
 
 
-  Comment.destroy_all
-
-  comment1 = Comment.create!(body: "nice song", user_id: user1.id, song_id: song1.id)
-
-  comment2 = Comment.create!(body: "woah song", user_id: user1.id, song_id: song1.id)
-
-  comment3 = Comment.create!(body: "great song", user_id: user1.id, song_id: song1.id)
-
-  
+  song2 = Song.create!(title: "cat meow",
+   genre: "animal",
+   description: "nice",
+   user_id: user1.id,
+   audio: "https://s3.us-east-2.amazonaws.com/awaaz-dev/Cat+Meowing+-+Sound+Effect+-+Download.mp3"
+   )
+#
+#
+  song3 = Song.create!(title: "dog barking",
+  genre: "animal",
+  description: "nice",
+  user_id: user2.id,
+  audio: "https://s3.us-east-2.amazonaws.com/awaaz-dev/Large+Dog+Barking+-+Sound+Effect.mp3"
+  )

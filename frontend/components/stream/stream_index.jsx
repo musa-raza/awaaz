@@ -7,15 +7,21 @@ class StreamIndex extends React.Component {
 
   constructor(props) {
     super(props);
+    this.setQueue = this.setQueue.bind(this);
   }
 
   componentDidMount() {
     this.props.requestAllSongs();
   }
 
+  setQueue(id) {
+    const queue = [];
+    this.props.setQueue(this.props.songs, id);
+  }
+
   render() {
     const SongItems = this.props.songs.map((song) => {
-    return <StreamIndexItem song={song} key={song.id} />;
+    return <StreamIndexItem setQueue={this.setQueue.bind(this)} song={song} songs={this.props.songs} key={song.id} />;
   });
     return(
       <div className="audio-parent">
@@ -36,7 +42,7 @@ class StreamIndex extends React.Component {
             <span>Hear the latest posts from the Awaaz community:</span>
           </div>
           <div className="audio-div">
-            {SongItems}
+            {SongItems.reverse()}
           </div>
       </div>
       </div>

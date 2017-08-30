@@ -12,6 +12,7 @@ class StreamIndexItem extends React.Component {
   }
 
 
+
   render() {
     let dateFormat = this.props.song.created_at;
     return(
@@ -33,6 +34,8 @@ class StreamIndexItem extends React.Component {
            <PlayButton
              id={this.props.song.id}
               name={this.props.song.user_name} title={this.props.song.title}
+              songId={this.props.song.id}
+              setQueue={this.props.setQueue.bind(this)}
             />
          </div>
 

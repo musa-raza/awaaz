@@ -3,6 +3,7 @@ import UserDetail from './user_detail';
 import { requestAUser } from '../../actions/user_actions';
 import { withRouter } from 'react-router-dom';
 import { selectUserSongs } from '../../reducers/selectors';
+import { setUserQueue } from '../../actions/audio_actions';
 
 const mapStateToProps = (state, ownProps) => {
   let user;
@@ -21,7 +22,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return({
-    requestAUser: (user) => (dispatch(requestAUser(user)))
+    requestAUser: (user) => (dispatch(requestAUser(user))),
+    setUserQueue: (songs, id) => (dispatch(setUserQueue(songs, id)))
   });
 };
 

@@ -9,6 +9,12 @@ export const selectUserSongs = (state, user) => {
 };
 
 export const selectSongComments = (state, song) => {
-  debugger
   return song ? song.comment_ids.map(id => state.entities.comments[id]) : [];
+};
+
+export const selectSingleSong = (state, id) => {
+  if (id === undefined) {
+    return {};
+  }
+  return state.entities.songs[parseInt(id)];
 };

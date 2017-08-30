@@ -8,6 +8,7 @@ import UserDetailContainer from './user/user_detail_container';
 import NavBar from './navbar';
 import UploadForm from './upload_form';
 import SongShow from './song_show';
+import AudioPlayer from './audio_player';
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
       <ProtectedRoute path="/" component={NavBar} />
       <ProtectedRoute exact path="/users/:username" component={UserDetailContainer} />
       <ProtectedRoute exact path="/upload" component={UploadForm} />
+      <ProtectedRoute path="/" component={AudioPlayer} /> 
       <ProtectedRoute path="/songs/:songId" component={SongShow} />
       <Switch>
       <ProtectedRoute exact path="/stream" component={StreamIndexContainer}

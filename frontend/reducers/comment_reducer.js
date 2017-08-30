@@ -7,6 +7,9 @@ const commentReducer = (state = {}, action) => {
   let newState = {};
   switch(action.type) {
     case RECEIVE_SONGS:
+      if (action.payload.comments === undefined) {
+        return {};
+      }
       return action.payload.comments;
     case RECEIVE_A_SONG:
       if (action.payload.comments === undefined) { return {};}

@@ -5,7 +5,6 @@ import { requestSingleSong } from '../../actions/song_actions';
 import { createComment, deleteComment } from '../../actions/comment_actions';
 
 const mapStateToProps = (state, ownProps) => {
-  debugger
   return({
     currentUser: state.session.currentUser,
     comments: selectSongComments(state, ownProps.song),
