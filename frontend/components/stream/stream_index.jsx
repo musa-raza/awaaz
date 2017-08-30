@@ -15,7 +15,6 @@ class StreamIndex extends React.Component {
   }
 
   setQueue(id) {
-    const queue = [];
     this.props.setQueue(this.props.songs, id);
   }
 

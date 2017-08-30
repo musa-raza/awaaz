@@ -16,7 +16,7 @@ const App = () => {
       <ProtectedRoute path="/" component={NavBar} />
       <ProtectedRoute exact path="/users/:username" component={UserDetailContainer} />
       <ProtectedRoute exact path="/upload" component={UploadForm} />
-      <ProtectedRoute path="/" component={AudioPlayer} /> 
+      <ProtectedRoute path="/" component={AudioPlayer} />
       <ProtectedRoute path="/songs/:songId" component={SongShow} />
       <Switch>
       <ProtectedRoute exact path="/stream" component={StreamIndexContainer}

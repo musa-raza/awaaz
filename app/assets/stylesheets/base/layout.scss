@@ -1108,3 +1108,35 @@ textarea.title-input  {
   font-family: 'Jaldi', sans-serif;
   color: $orange;
 }
+
+
+// footerbar
+
+.bottom {
+  width: 100%;
+  display: flex;
+  margin: auto;
+  position: fixed;
+  bottom: 0px;
+  background-color: $lightgrey;
+  z-index: 5;
+  border: 1px solid $footergrey;
+  height: 60px;
+}
+
+
+.house-playbardiv {
+  width: 90%;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 50px;
+}
+
+.house-playbardiv i {
+  padding: 0px 10px 0px 10px;
+  height: 15px;
+  cursor: pointer;
+}
