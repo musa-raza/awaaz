@@ -20,7 +20,13 @@ class StreamIndex extends React.Component {
 
   render() {
     const SongItems = this.props.songs.map((song) => {
-    return <StreamIndexItem setQueue={this.setQueue.bind(this)} song={song} songs={this.props.songs} key={song.id} />;
+    return <StreamIndexItem setQueue={this.setQueue.bind(this)}
+            song={song}
+            songs={this.props.songs}
+            key={song.id}
+            currentUser={this.props.currentUser}
+            deleteSong={this.props.deleteSong.bind(this)}
+            />;
   });
     return(
       <div className="audio-parent">

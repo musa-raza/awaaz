@@ -4,7 +4,7 @@ import { requestAUser } from '../../actions/user_actions';
 import { withRouter } from 'react-router-dom';
 import { selectUserSongs } from '../../reducers/selectors';
 import { setUserQueue } from '../../actions/audio_actions';
-
+import { deleteSong } from '../../actions/song_actions';
 const mapStateToProps = (state, ownProps) => {
   let user;
   if (state.entities.users[ownProps.match.params.username]) {
@@ -15,7 +15,8 @@ const mapStateToProps = (state, ownProps) => {
   }
   return({
     user,
-    songs: selectUserSongs(state, user)
+    songs: selectUserSongs(state, user),
+    currentUser: state.session.currentUser
   });
 };
 
@@ -23,7 +24,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
   return({
     requestAUser: (user) => (dispatch(requestAUser(user))),
-    setUserQueue: (songs, id) => (dispatch(setUserQueue(songs, id)))
+    setUserQueue: (songs, id) => (dispatch(setUserQueue(songs, id))),
+    deleteSong: (song) => (dispatch(deleteSong(song)))
   });
 };
 

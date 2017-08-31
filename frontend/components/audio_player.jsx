@@ -13,30 +13,59 @@ class AudioPlayer extends React.Component {
     this.handlePlayPause = this.handlePlayPause.bind(this);
     this.handleForward = this.handleForward.bind(this);
     this.state = {
-      elapsedTime: "",
-      totalTime: ""
-    }
+      elapsedTime: 0,
+      totalTime: 0
+    };
+    this.tickSeconds = this.tickSeconds.bind(this);
+    this.parseTime = this.parseTime.bind(this);
+    this.handleRewind = this.handleRewind.bind(this);
   }
 
   tickSeconds() {
     const audio = document.getElementById("audio");
-    const time = audio.currentTime;
-
-    this.setState({})
+    const time = Math.floor(audio.currentTime);
+    if ( isNaN(audio.duration)) {
+      return this.setState({
+        totalTime: 0
+      });
+    }
+    this.setState({
+      elapsedTime: time,
+      totalTime: Math.floor(audio.duration)
+    });
   }
 
-  parseMinutes(secs) {
-    let mins = secs % 60;
-    mins < 10 ? `0${minutes}` : mins;
+  componentDidMount() {
+    this.intervalId = setInterval(this.tickSeconds, 900);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.intervalId);
+  }
+
+  parseTime(secs) {
+    let mins = Math.floor((secs % 60) / 60);
+    let seconds = Math.floor(secs % 60);
+    mins = mins < 10 ? `0${mins}` : mins;
+    seconds = seconds < 10 ? `0${secs}` : seconds;
+    let result = `${mins}:${seconds}`;
+    if (!result){
+      return "0:00";
+    } else {
+      return result;
+    }
   }
 
   componentWillReceiveProps(newProps) {
     const audio = document.getElementById("audio");
-    if (this.props.status != 'playing' && newProps.status === 'playing') {
+    // if (this.props.status != 'playing' && newProps.status === 'playing') {
+    //   audio.src = newProps.currentTrackObject.audio_url;
+    // } else if (this.props.status === 'playing' && this.props.currentTrack != newProps.currentTrack) {
+    //   audio.src = newProps.currentTrackObject.audio_url;
+    // }
+    if (this.props.currentTrack != newProps.currentTrack) {
       audio.src = newProps.currentTrackObject.audio_url;
-    } else if (this.props.status === 'playing' && this.props.currentTrack != newProps.currentTrack) {
-      audio.src = newProps.currentTrackObject.audio_url;
-      }
+    }
     if (newProps.status === 'playing') {
       audio.play();
     } else if (newProps.status === 'paused') {
@@ -51,6 +80,11 @@ class AudioPlayer extends React.Component {
 // source == newProps.currentTrackObject.AudioPlayer
 
 
+  handleRewind(e) {
+    e.preventDefault();
+    const audio = document.getElementById("audio");
+    audio.currentTime = 0;
+  }
 
   handlePlayPause(e) {
     e.preventDefault();
@@ -66,26 +100,61 @@ class AudioPlayer extends React.Component {
     audio.currentTime = audio.duration;
   }
 
-  handleStart
 
   render() {
+    let albumart;
+    let tracktitle;
+    let trackartist;
+    let orig = this;
+    if (this.props.currentTrackObject.title) {
+      albumart = (
+        <img className="footer-albumart" src={this.props.currentTrackObject.image_url}
+          />
+      );
+        tracktitle = (
+          <span className="footer-textinfo">Song: {this.props.currentTrackObject.title}</span>
+        );
+        trackartist = (
+          <span className="footer-textinfo">Artist: {this.props.currentTrackObject.user_name}</span>
+        );
+    }
+    if (this.props.currentTrackObject) {
+    }
     return(
       <div className="bottom">
-        <footer className="footer-play">
+        <div className="footer-play">
           <div className="house-playbardiv">
-            <i className="fa fa-step-backward" aria-hidden="true"></i>
-            <i className={(this.props.status === 'playing') ? "fa fa-pause" : "fa fa-play"} aria-hidden="true" onClick={this.handlePlay}></i>
-            <i className="fa fa-step-forward" aria-hidden="true" onClick={this.handleForward}></i>
-            <i className="fa fa-random" aria-hidden="true"></i>
-            <i className="fa fa-retweet" aria-hidden="true"></i>
-            <div className="progress">
-              <div className="elapsedTime">
-
+              <i className="fa fa-step-backward" aria-hidden="true" onClick={this.handleRewind}></i>
+              <i className={(this.props.status === 'playing') ? "fa fa-pause" : "fa fa-play"} aria-hidden="true" onClick={this.handlePlayPause}></i>
+              <i className="fa fa-step-forward" aria-hidden="true" onClick={this.handleForward}></i>
+              <i className="fa fa-random" aria-hidden="true"></i>
+              <i className="fa fa-retweet" aria-hidden="true"></i>
+              <div className="progressbar-div">
+                <div className="elapsedTime">
+                  {this.parseTime(this.state.elapsedTime)}
+                </div>
+                <div className="progress-div">
+                  <div className="color-div" style= {{width: `${(this.state.elapsedTime / this.state.totalTime)* 100}%`}} />
+                </div>
+                <div className="totalTime">
+                  {this.parseTime(this.state.totalTime)}
+                </div>
+              </div>
+              <div className="albuminfo-house">
+              <div className="track-info">
+                <i class="fa fa-volume-up" aria-hidden="true"></i>
+                  <div className="playeralbum-info">
+                    {albumart}
+                  </div>
+                  <div className="songinfo-footer">
+                    {tracktitle}
+                     {trackartist}
+                  </div>
+                </div>
               </div>
             </div>
             <audio id="audio"></audio>
           </div>
-        </footer>
       </div>
     );
   }

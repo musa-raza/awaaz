@@ -8,27 +8,41 @@ class CommentIndex extends React.Component {
     super(props);
   }
 
+  handleDelete(e) {
+    e.preventDefault();
+
+  }
+
 
   render() {
     if (this.props.comments === null) {
       return null;
     }
+    const orig = this;
     const CommentItems = this.props.comments.map((comment) => {
-      return (
-        <div key={comment.id} className="comment-authordiv">
-          <div className="userdivs">
-            <Link to={`/users/${comment.user_id}`}>
-              <img src={comment.user_pic}/>
-            </Link>
-            <span className="userlinks">{comment.user_name}</span>
+      let button;
+      if (comment != undefined && this.props.currentUser.id === comment.user_id) {
+        button = <i className="fa fa-trash" aria-hidden="true" onClick={orig.props.deleteComment.bind(this, comment.id)}></i>;
+      }
+      if (comment != undefined) {
+        return (
+          <div key={comment.id} className="comment-authordiv">
+            <div className="userdivs">
+              <Link to={`/users/${comment.user_id}`}>
+                <img src={comment.user_pic}/>
+              </Link>
+              <span className="userlinks">{comment.user_name}</span>
+            </div>
+            <li className="comment-items">{comment.body}</li>
+            <div className="trash-div">
+              {button}
+            </div>
           </div>
-          <li className="comment-items">{comment.body}</li>
-          <div className="trash-div">
-            <i className="fa fa-trash" aria-hidden="true" ></i>
-          </div>
-        </div>
-        );
-    });
+          );
+      } else {
+        return null;
+      }
+  });
     let date = this.props.song.created_at;
     return (
       <div>

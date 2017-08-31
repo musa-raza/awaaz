@@ -15,7 +15,12 @@ class StreamIndexItem extends React.Component {
 
   render() {
     let dateFormat = this.props.song.created_at;
+    let delButton;
+    if (this.props.song != undefined && this.props.currentUser.id === this.props.song.user_id) {
+      delButton = <i className="fa fa-trash" aria-hidden="true" onClick={this.props.deleteSong.bind(this, this.props.song.id)}></i>;
+    }
     return(
+    <div className="play-audio-parent">
     <div className="play-parent">
       <div className="artist-info-div">
           <div className="artist-img-div">
@@ -38,8 +43,11 @@ class StreamIndexItem extends React.Component {
               setQueue={this.props.setQueue.bind(this)}
             />
          </div>
-
         </div>
+      </div>
+      <div className="delbutton-div">
+        {delButton}
+      </div>
     </div>
   );
   }

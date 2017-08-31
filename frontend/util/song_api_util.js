@@ -12,10 +12,10 @@ export const fetchASong = (id) => {
   });
 };
 
-export const deleteASong = (song) => {
-  return $.ajax({
+export const deleteASong = (songId) => {
+    return $.ajax({
     method: 'DELETE',
-    url: `api/songs/${song.id}`
+    url: `api/songs/${songId}`
   });
 };
 
@@ -25,6 +25,6 @@ export const createASong = (formData) => {
     type: 'POST',
     processData: false,
     contentType: false,
-    data: formData 
+    data: formData
   });
 };

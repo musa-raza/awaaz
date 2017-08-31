@@ -49,6 +49,7 @@ export const setUserQueue = (songs, currentTrackId) => {
       queue.push(song.id);
     }
   });
+  debugger
   return({
     type: SET_USER_QUEUE,
     queue

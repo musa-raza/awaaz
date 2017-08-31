@@ -4,6 +4,7 @@ import { selectAllSongs } from '../../reducers/selectors';
 import { logout } from '../../actions/session_actions';
 import { playSong, pauseSong, setQueue } from '../../actions/audio_actions';
 import { requestAllSongs, requestSingleSong } from '../../actions/song_actions';
+import { deleteSong } from '../../actions/song_actions';
 
 const mapStateToProps = (state) => {
   return {
@@ -20,7 +21,8 @@ const mapDispatchToProps = (dispatch) => {
     requestAllSongs: () => dispatch(requestAllSongs()),
     requestSingleSong: (song) => dispatch(requestSingleSong(song)),
     logout: () => dispatch(logout()),
-    setQueue: (songs, id) => dispatch(setQueue(songs, id))
+    setQueue: (songs, id) => dispatch(setQueue(songs, id)),
+    deleteSong: (song) => dispatch(deleteSong(song))
   };
 };
 
