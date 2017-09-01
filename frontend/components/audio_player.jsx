@@ -106,7 +106,6 @@ class AudioPlayer extends React.Component {
     let tracktitle;
     let trackartist;
     let orig = this;
-    debugger
     if (this.props.currentTrackObject) {
       albumart = (
         <img className="footer-albumart" src={this.props.currentTrackObject.image_url}

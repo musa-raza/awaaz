@@ -32,7 +32,7 @@ class StreamIndexItem extends React.Component {
           editButton =  <Link to={`/songs/${this.props.song.id}/edit`}>
             <i className="fa fa-pencil" aria-hidden="true"></i>
           </Link>;
-        } else {
+        }
           return(
             <div className="play-audio-parent">
               <div className="play-parent">
@@ -67,8 +67,6 @@ class StreamIndexItem extends React.Component {
           );
         }
       }
-
-    }
 
 }
 

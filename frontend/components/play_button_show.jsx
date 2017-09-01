@@ -14,7 +14,6 @@ class PlayButtonShow extends React.Component {
   handlePlayPause(e) {
     e.preventDefault();
     this.props.setQueue(this.props.songId);
-    debugger
     if (this.props.status === 'playing' && this.props.currentTrack === this.props.songId) {
       this.props.pauseSong();
     } else {

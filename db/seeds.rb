@@ -152,7 +152,7 @@ song11 = Song.create!(
  genre: "House",
  description: "Saxophone Vibes",
  user_id: klingande.id,
- audio: "https://s3.us-east-2.amazonaws.com/awaaz-dev/jubel+klingande.mp3",
+ audio: "https://s3.us-east-2.amazonaws.com/awaaz-dev/punga+klingande.mp3",
  image: "https://s3.us-east-2.amazonaws.com/awaaz-dev/punga+jpg.jpg"
 )
 

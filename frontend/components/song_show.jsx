@@ -23,7 +23,6 @@ setQueue(id) {
 }
 
 render() {
-  debugger
   if (this.props.song === null) {
     return null;
   }
