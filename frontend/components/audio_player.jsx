@@ -24,6 +24,7 @@ class AudioPlayer extends React.Component {
   tickSeconds() {
     const audio = document.getElementById("audio");
     const time = Math.floor(audio.currentTime);
+    debugger
     if ( isNaN(audio.duration)) {
       return this.setState({
         totalTime: 0
@@ -44,10 +45,11 @@ class AudioPlayer extends React.Component {
   }
 
   parseTime(secs) {
-    let mins = Math.floor((secs % 60) / 60);
+    let mins = Math.floor((secs / 60) % 60);
     let seconds = Math.floor(secs % 60);
     mins = mins < 10 ? `0${mins}` : mins;
-    seconds = seconds < 10 ? `0${secs}` : seconds;
+    seconds = seconds < 10 ? `0${seconds}` : seconds;
+    debugger
     let result = `${mins}:${seconds}`;
     if (!result){
       return "0:00";
@@ -142,7 +144,6 @@ class AudioPlayer extends React.Component {
               </div>
               <div className="albuminfo-house">
               <div className="track-info">
-                <i class="fa fa-volume-up" aria-hidden="true"></i>
                   <div className="playeralbum-info">
                     {albumart}
                   </div>

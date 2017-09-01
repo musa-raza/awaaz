@@ -9,6 +9,7 @@ import NavBar from './navbar';
 import UploadForm from './upload_form';
 import SongShow from './song_show';
 import AudioPlayer from './audio_player';
+import SongEditForm from './song_edit_form';
 
 const App = () => {
   return (
@@ -17,7 +18,10 @@ const App = () => {
       <ProtectedRoute exact path="/users/:username" component={UserDetailContainer} />
       <ProtectedRoute exact path="/upload" component={UploadForm} />
       <ProtectedRoute path="/" component={AudioPlayer} />
-      <ProtectedRoute path="/songs/:songId" component={SongShow} />
+      <Switch>
+        <ProtectedRoute exact path="/songs/:songId" component={SongShow} />
+        <ProtectedRoute exact path="/songs/:songId/edit" component={SongEditForm} />
+      </Switch>
       <Switch>
       <ProtectedRoute exact path="/stream" component={StreamIndexContainer}
         />

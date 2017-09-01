@@ -30,7 +30,103 @@
   display: none;
 }
 
+html {
+  background-color: $lightgrey;
+}
 
+
+
+.father-div {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 200px);
+  margin: auto;
+}
+
+.login-peak {
+  width: calc(100% - 200px);
+  margin-left: 100px;
+  margin-right: 100px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  background: white;
+}
+
+.login-parentdivs {
+  display: flex;
+  width: 100%;
+  margin: auto;
+  color: white;
+  flex-direction: column;
+}
+
+.login-search {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+}
+
+.login-search input {
+  padding: 20px;
+  width: 50%;
+  font-size: 18px;
+  border-radius: 5px;
+  border: 1px solid $black;
+}
+
+.loginheading-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginheading-text {
+  font-size: 35px;
+  font-family: 'Jaldi', sans-serif;
+  font-weight: bold;
+  color: black;
+  padding-bottom: 25px;
+}
+
+.loginalbum-text {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  font-size: 25px;
+  font-family: 'Jaldi', sans-serif;
+  padding: 10px;
+  align-items: center;
+  color: $black;
+  justify-content: center;
+  padding: 10px 0px 0px 0px;
+}
+
+.songs-div {
+  width: 900px;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.loginalbumart-div {
+  display: flex;
+  align-items: center;
+  padding: 50px;
+  flex-direction: column;
+}
+
+.loginalbumart-div img {
+  width: 180px;
+  height: 180px;
+  border: 1px solid black;
+}
 
 .session-form {
   box-sizing: border-box;
@@ -43,6 +139,7 @@
   justify-content: center;
   flex-direction: column;
   font-family: 'Jaldi', sans-serif;
+  border: 1px solid black;
 }
 
 
@@ -71,7 +168,7 @@
 .logo {
   content: image-url("logo.jpg");
   position: absolute;
-  left: 110px;
+  left: 200px;
   height: 100px;
 }
 
@@ -111,6 +208,7 @@
   height: 30px;
   width: 75px;
   text-align: center;
+  cursor: pointer;
 }
 
 .op-button:hover {
@@ -128,6 +226,7 @@
   margin-top: 15px;
   font-family: 'Jaldi', sans-serif;
   font-size: 15px;
+  cursor: pointer;
 }
 
 .signup-button:hover {
@@ -137,7 +236,7 @@
 
 .app-div {
   background-color: lightgrey;
-  margin-bottom: 50px;
+  padding: none;
 }
 
 .input-username{
@@ -163,6 +262,7 @@
   font-size: 15px;
   margin: 0 auto;
   margin-top: 20px;
+  cursor: pointer;
 }
 
 .guest-login {
@@ -256,6 +356,7 @@
   font-family: 'Jaldi', sans-serif;
   text-decoration: none;
   color: white;
+  cursor: pointer;
 }
 
 //navbar
@@ -270,6 +371,7 @@
   color: white;
   display: flex;
   flex-direction: row;
+  cursor: pointerl
 }
 
 .navimg-div {
@@ -307,6 +409,7 @@
   text-decoration: none;
   align-items: center;
   justify-content: baseline;
+  cursor: pointer;
 
 }
 
@@ -332,6 +435,7 @@
   text-decoration: none;
   align-items: center;
   justify-content: baseline;
+  cursor: pointer;
 }
 
 .dropdown-li {
@@ -343,6 +447,7 @@
   justify-content: center;
   align-items: baseline;
   width: 220px;
+  cursor: pointer;
 }
 
 .dropdown-li a {
@@ -352,6 +457,7 @@
 
 .dropdown-logout a {
  padding: 9px;
+cursor: pointer;
 }
 
 .nav-profile img {
@@ -359,12 +465,14 @@
   width: 25px;
   height: 25px;
   padding-left: 3px;
+  cursor: pointer;
 }
 
 .nav-logout {
   border-right: 1px solid #111;
   text-align: center;
   padding: 15px;
+  cursor: pointer;
 }
 
 .dropdown-div {
@@ -377,6 +485,11 @@
   font-family: 'Jaldi', sans-serif;
   text-decoration: none;
   color: white;
+  cursor: pointer;
+}
+
+.name {
+  cursor: pointer;
 }
 
 .nav-home {
@@ -385,20 +498,71 @@
   padding: 15px;
 }
 
+.nav-home:active {
+  background-color: black;
+  box-shadow: 0px 0px 4px $orange;
+  color: $orange;
+}
+
+.nav-home:hover{
+  background: $orange;
+}
+
 .nav-logout {
   border-right: 1px solid #111;
   text-align: center;
   padding: 15px;
 }
+
+.nav-logout:hover{
+  background: $orange;
+}
+
+
+.nav-logout:active {
+  background-color: black;
+  box-shadow: 0px 0px 4px $orange;
+  color: $orange;
+}
+
+.nav-logout:hover{
+  background: $orange;
+}
+
+
 .nav-collection  {
   padding: 15px;
   text-align: center;
   border-right: 1px solid #111;
 }
 
+.nav-collection:hover{
+  background: $orange;
+}
+
+
+.nav-collection:active {
+  background-color: black;
+  box-shadow: 0px 0px 4px $orange;
+  color: $orange;
+}
+
 .nav-search   {
   padding: 15px 15px 0px 15px;
   border-right: 1px solid #111;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-search input  {
+  font-size: 50px;
+  font-family: 'Jaldi', sans-serif;
+}
+
+.nav-search:active {
+  background-color: black;
+  box-shadow: 0px 0px 4px $orange;
+  color: $orange;
 }
 
 .nav-upload  {
@@ -406,6 +570,16 @@
   text-align: center;
   padding: 15px;
 }
+
+.nav-upload:active {
+  background-color: black;
+  box-shadow: 0px 0px 4px $orange;
+  color: $orange;
+}
+.nav-upload:hover{
+  background: $orange;
+}
+
 
 
 
@@ -426,9 +600,21 @@
   z-index: 10;
 }
 
+.nav-profile:active {
+  background-color: black;
+  box-shadow: 0px 0px 4px $orange;
+  color: $orange;
+}
+
+.nav-profile:hover{
+  background: $orange;
+}
+
 
 .nav-search input {
   width: 300px;
+  text-indent: 2px;
+  padding: 2px;
 }
 
 
@@ -590,6 +776,8 @@
   border-radius: 3px;
   padding-top: 5px;
   padding-bottom: 5px;
+  font-size: 20px;
+  padding: 10px;
 }
 
 .form-field {
@@ -600,12 +788,14 @@
 
 textarea.title-input  {
   height: 50px;
+  font-size: 20px;
 }
 
 .upload-button {
   display: flex;
   justify-content: center;
   padding-top: 40px;
+  cursor: pointer;
 }
 
 .u-button {
@@ -620,6 +810,7 @@ textarea.title-input  {
   font-size: 15px;
   margin: 0 auto;
   margin-top: 20px;
+  cursor: pointer;
 }
 
 
@@ -662,7 +853,11 @@ textarea.title-input  {
   font-size: 24px;
   margin: 5px;
   text-decoration: none;
+  color: black;
+}
 
+.stream-heading a {
+  color: black;
 }
 
 .stream-heading:active {
@@ -695,7 +890,7 @@ textarea.title-input  {
   font-size: 25px;
   display: flex;
   flex-direction: row;
-  color: $lightgrey;
+  color: grey;
   font-family: 'Jaldi', sans-serif;
 }
 
@@ -788,8 +983,10 @@ textarea.title-input  {
 .playbutton-div i {
   display: flex;
   width: 70px;
-  font-size: 30px;
+  font-size: 27px;
   justify-content: center;
+  cursor: pointer;
+  position: relative;
 }
 
 .songplay-div {
@@ -813,6 +1010,7 @@ textarea.title-input  {
 .songartist a {
   text-decoration: none;
   color: grey;
+  cursor: pointer;
 }
 
 .songtitle {
@@ -825,6 +1023,7 @@ textarea.title-input  {
 .songtitle a {
   text-decoration: none;
   color: black;
+  cursor: pointer;
 }
 
 .button-parent {
@@ -847,6 +1046,16 @@ textarea.title-input  {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+
+.delbutton-div i {
+  padding: 0px 40px 0px 40px;
+  cursor: pointer;
+  color: black;
+}
+
+.delbutton-div a {
+  text-decoration: none;
 }
 
 //songshow
@@ -922,7 +1131,7 @@ textarea.title-input  {
   align-items: flex-start;
   position: relative;
   right: 12%;
-  padding-left: 50px;
+  margin-left: 50px;
 }
 
 
@@ -934,6 +1143,7 @@ textarea.title-input  {
   border: 2px solid white;
   border-radius: 50%;
   color: white;
+  margin-right: 50px;
   align-items: center;
   height: 70px;
 }
@@ -943,6 +1153,7 @@ textarea.title-input  {
   width: 70px;
   font-size: 30px;
   justify-content: center;
+  cursor: pointer;
 }
 
 .button-div {
@@ -1004,6 +1215,7 @@ textarea.title-input  {
   background-color: $orange;
   font-family: 'Jaldi', sans-serif;
   font-size: 15px;
+  cursor: pointer;
 }
 
 //comment-index
@@ -1072,6 +1284,13 @@ textarea.title-input  {
   width: 100%;
   justify-content: space-around;
   padding-bottom: 100px;
+}
+
+.description-text {
+  margin-top: 10px;
+  font-weight: normal;
+  font-family: 'Jaldi', sans-serif;
+  color: grey;
 }
 
 .comment-artistinfo {
@@ -1232,10 +1451,11 @@ textarea.title-input  {
     padding-left: 20px;
     font-size: 18px;
     font-family: 'Jaldi', sans-serif;
+    justify-content: center;
   }
 
   .songinfo-footer span {
-    padding: 5px;
+    padding: 1px 0px 0px 3px;
     color: $orange;
   }
 
@@ -1273,9 +1493,4 @@ textarea.title-input  {
     font-family: 'Jaldi', sans-serif;
     font-weight: bold;
     margin-left: 10px;
-  }
-
-
-  button i {
-    cursor: pointer;
   }

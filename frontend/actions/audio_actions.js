@@ -45,11 +45,10 @@ export const updateQueue = () => {
 export const setUserQueue = (songs, currentTrackId) => {
   const queue = [];
   songs.forEach((song) => {
-    if (song.id >= currentTrackId) {
+    if (song.id <= currentTrackId) {
       queue.push(song.id);
     }
   });
-  debugger
   return({
     type: SET_USER_QUEUE,
     queue

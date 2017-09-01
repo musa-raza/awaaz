@@ -18,6 +18,12 @@ class UserDetail extends React.Component {
     this.props.setUserQueue(this.props.songs, id);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if ( this.props.user === null || this.props.user.username !== nextProps.match.params.username ) {
+      this.props.requestAUser(this.props.match.params.username);
+    }
+  }
+
   render() {
     if (this.props.user === null) {
       return null;

@@ -57,10 +57,12 @@ class UploadForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const formData = new FormData();
+    if (this.state.imageFile) {
+      formData.append("song[image]", this.state.imageFile);
+    }
     formData.append("song[title]", this.state.title);
     formData.append("song[genre]", this.state.genre);
     formData.append("song[description]", this.state.description);
-    formData.append("song[image]", this.state.imageFile);
     formData.append("song[audio]", this.state.songFile);
     this.props.createSong(formData)
     .then(() => this.props.history.push('/'));

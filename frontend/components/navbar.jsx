@@ -31,36 +31,36 @@ class NavBar extends React.Component {
       <div className="top">
       <div className="parent-div">
         <div className="img-div">
-          <Link to="/stream">
+          <NavLink to="/stream">
             <img className="nav-logo" src="https://s3.us-east-2.amazonaws.com/awaaz-dev/logo.jpg" />
-          </Link>
+          </NavLink>
         </div>
           <div className="nav-home">
-            <Link onClick={this.setFalse} to="/stream" >
+            <NavLink onClick={this.setFalse} to="/stream" >
               Home
-            </Link>
+            </NavLink>
           </div>
           <div className="nav-collection">
-            <Link onClick={this.setFalse} to="/collection">
+            <NavLink onClick={this.setFalse} to="/collection">
               Collection
-            </Link>
+            </NavLink>
           </div>
           <div className="nav-search">
             <input type="search" placeholder="Search" />
           </div>
           <div className="nav-upload">
-            <Link onClick={this.setFalse} to="/upload">
+            <NavLink onClick={this.setFalse} to="/upload">
               Upload
-            </Link>
+            </NavLink>
           </div>
           <div className="nav-profile">
-            <div onClick={this.handleDrop}>{this.props.user.username}</div><div className="navimg-div"><img onClick={this.handleDrop} src={this.props.user.avatar_url}/>
+            <div onClick={this.handleDrop} className="name">{this.props.user.username}</div><div className="navimg-div"><img onClick={this.handleDrop} src={this.props.user.avatar_url}/>
             <div className="dropdown-div">
               <ul className={this.state.open ? "active" : "hidden"}>
                 <li className="dropdown-li" onClick={this.handleDrop}>
-                  <Link to={`/users/${this.props.user.username}`}>
+                  <NavLink to={`/users/${this.props.user.username}`}>
                     Profile
-                  </Link>
+                  </NavLink>
                 </li>
                 <li className="dropdown-li" onClick={this.handleDrop}>
                   <a onClick={this.logout} >Logout</a>

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PlayButton from '../play_button';
 import Moment from 'react-moment';
 import 'moment-timezone';
+import ReactLoading from 'react-loading';
 
 
 class StreamIndexItem extends React.Component {
@@ -12,12 +13,20 @@ class StreamIndexItem extends React.Component {
   }
 
 
+  // componentDidMount() {
+  //   <ReactLoading type={bars} color={orange} height='667' width='375' delay='2000'
+  // }
+
 
   render() {
     let dateFormat = this.props.song.created_at;
     let delButton;
+    let editButton;
     if (this.props.song != undefined && this.props.currentUser.id === this.props.song.user_id) {
-      delButton = <i className="fa fa-trash" aria-hidden="true" onClick={this.props.deleteSong.bind(this, this.props.song.id)}></i>;
+      delButton =  <i className="fa fa-trash" aria-hidden="true" onClick={this.props.deleteSong.bind(this, this.props.song.id)}></i>;
+      editButton =  <Link to={`/songs/${this.props.song.id}/edit`}>
+          <i className="fa fa-pencil" aria-hidden="true"></i>
+        </Link>;
     }
     return(
     <div className="play-audio-parent">
@@ -46,7 +55,8 @@ class StreamIndexItem extends React.Component {
         </div>
       </div>
       <div className="delbutton-div">
-        {delButton}
+         {editButton}
+         {delButton}
       </div>
     </div>
   );

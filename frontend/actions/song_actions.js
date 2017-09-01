@@ -49,3 +49,10 @@ export const deleteSong = (id) => {
     .then(() => dispatch(removeSong(id)));
   };
 };
+
+export const editSong = (song, id) => {
+  return (dispatch) => {
+    return APIUtil.editASong(song, id)
+    .then((song) => dispatch(receiveASong(song)));
+  };
+};

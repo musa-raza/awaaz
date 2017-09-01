@@ -59,6 +59,10 @@ class CommentIndex extends React.Component {
                 <p>Released date:</p>
               </span>
                 <p className="comment-text"><Moment>{date}</Moment></p>
+              <span className="bold-heading">
+                <p>Song Description:</p>
+                <p className="description-text">{this.props.song.description}</p>
+              </span>
             </div>
             <div className="comment-uldiv">
               <ul className= "comment-ul"></ul>
