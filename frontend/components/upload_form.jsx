@@ -78,8 +78,15 @@ class UploadForm extends React.Component {
             </div>
             <div className="uploadform-parent">
               <div className="upload-img-div">
-                <img className="upload-art" src="https://s3.us-east-2.amazonaws.com/awaaz-dev/default-audio-art.png "/>
-                <input type="file" onChange={this.updateSongArt} />
+                <label htmlFor="albumart-upload">
+                  <input id="albumart-upload" type="file" onChange={this.updateSongArt} />
+                  <img className="upload-art" src="https://s3.us-east-2.amazonaws.com/awaaz-dev/default-audio-art.png "/>
+                  <div className="text-div">
+                    <span className="upload-text">
+                      Click on image to upload song art!
+                    </span>
+                  </div>
+                </label>
               </div>
               <div className="form-input">
               <label className="form-field">Title</label>
@@ -97,8 +104,13 @@ class UploadForm extends React.Component {
                 value={this.state.description}
                 onChange={this.update('description')}
                 className="title-input" />
-              <label className="form-field">Track</label>
-              <input type="file" onChange={this.updateSong} />
+              <div className="fake-buttondiv">
+                <label htmlFor="fileupload" className="form-field">Track
+                  <input id="fileupload" className="track-upload" type="file" onChange={this.updateSong} />
+                <span className="real-uploadbutton"> Upload File
+                </span>
+                </label>
+              </div>
             </div>
             </div>
             <div className="upload-button">

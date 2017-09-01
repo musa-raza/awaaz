@@ -85,8 +85,15 @@ class SongEditForm extends React.Component {
           </div>
           <div className="uploadform-parent">
             <div className="upload-img-div">
-              <img className="upload-art" src="https://s3.us-east-2.amazonaws.com/awaaz-dev/default-audio-art.png "/>
-              <input type="file" onChange={this.updateSongArt} />
+              <label htmlFor="albumart-upload">
+                <input id="albumart-upload" type="file" onChange={this.updateSongArt} />
+                <img className="upload-art" src="https://s3.us-east-2.amazonaws.com/awaaz-dev/default-audio-art.png "/>
+                <div className="text-div">
+                  <span className="upload-text">
+                    Click on image to upload song art!
+                  </span>
+                </div>
+              </label>
             </div>
             <div className="form-input">
             <label className="form-field">Title</label>

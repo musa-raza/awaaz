@@ -52,28 +52,16 @@
   avatar: "https://s3.us-east-2.amazonaws.com/awaaz-dev/klingande+avatar.jpg"
   )
 
+  nadia = User.create!(
+  username: "Nadia Ali",
+  password: "password",
+  avatar: "https://s3.us-east-2.amazonaws.com/awaaz-dev/nadia_ali_singer.jpg"
+  )
+
 
   Song.destroy_all
 
 
- song1 = Song.create!(
-  title: "Lal Meri Pat",
-  genre: "Sufi Rock",
-  description: "Fusion of sufi and rock music",
-  user_id: junoon.id,
-  audio: "https://s3.us-east-2.amazonaws.com/awaaz-dev/junoon+lal+meri.mp3",
-  image: "https://s3.us-east-2.amazonaws.com/awaaz-dev/junoon-logo-primary.jpg"
-)
-
-
-song2 = Song.create!(
- title: "Sayonee",
- genre: "Sufi Rock",
- description: "Fusion of sufi and rock music",
- user_id: junoon.id,
- audio: "https://s3.us-east-2.amazonaws.com/awaaz-dev/junoon+sayonee.mp3",
- image: "https://s3.us-east-2.amazonaws.com/awaaz-dev/junoon-logo-primary.jpg"
-)
 
 song3 = Song.create!(
  title: "Often",
@@ -172,4 +160,32 @@ description: "Remix feat. Ellie Goulding",
 user_id: gryffin.id,
 audio: "https://s3.us-east-2.amazonaws.com/awaaz-dev/First+time+gryffin.mp3",
 image: "https://s3.us-east-2.amazonaws.com/awaaz-dev/first+time+.jpg"
+)
+
+song1 = Song.create!(
+ title: "Lal Meri Pat",
+ genre: "Sufi Rock",
+ description: "Fusion of sufi and rock music",
+ user_id: junoon.id,
+ audio: "https://s3.us-east-2.amazonaws.com/awaaz-dev/junoon+lal+meri.mp3",
+ image: "https://s3.us-east-2.amazonaws.com/awaaz-dev/junoon-logo-primary.jpg"
+)
+
+
+song2 = Song.create!(
+title: "Sayonee",
+genre: "Sufi Rock",
+description: "Fusion of sufi and rock music",
+user_id: junoon.id,
+audio: "https://s3.us-east-2.amazonaws.com/awaaz-dev/junoon+sayonee.mp3",
+image: "https://s3.us-east-2.amazonaws.com/awaaz-dev/junoon-logo-primary.jpg"
+)
+
+song14 = Song.create!(
+title: "Rapture",
+genre: "House",
+description: "Remix with Avicii",
+user_id: nadia.id,
+audio: "https://s3.us-east-2.amazonaws.com/awaaz-dev/nadiaali+rapture.mp3",
+image: "https://s3.us-east-2.amazonaws.com/awaaz-dev/Nadia_Ali_Rapturealbumart.jpg"
 )
