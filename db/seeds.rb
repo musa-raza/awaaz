@@ -10,8 +10,14 @@
   User.destroy_all
 
   User.create!(username: 'Guest', password: '123456')
- user1 = User.create!(username: "alpha", password: '123456')
- user2 = User.create!(username: "bravo", password: '123456')
+  junoon = User.create!(username: "Junoon", password: 'password')
+  kygo = User.create!(username: "Kygo", password: 'password')
+  klangkarusell = User.create!(username: "Klangkarussell", password: 'password')
+  gryffin = User.create!(username: "Gryffin", password: 'password')
+  matoma = User.create!(username: "Matoma", password: 'password')
+  m83 = User.create!(username: "M83", password: 'password')
+  klingande = User.create!(username: "Klingande", password: 'password')
+  
 
   Song.destroy_all
 
