@@ -14,7 +14,8 @@ class PlayButtonShow extends React.Component {
   handlePlayPause(e) {
     e.preventDefault();
     this.props.setQueue(this.props.songId);
-    if (this.props.status === 'playing') {
+    debugger
+    if (this.props.status === 'playing' && this.props.currentTrack === this.props.songId) {
       this.props.pauseSong();
     } else {
       this.props.playSong();
@@ -24,7 +25,7 @@ class PlayButtonShow extends React.Component {
   render() {
     return(
       <div className="playbuttonshow-div">
-          <i className={this.props.status === 'playing' ? "fa fa-pause" : "fa fa-play"} aria-hidden="true" onClick={this.handlePlayPause}></i>
+          <i className={this.props.status === 'playing' && this.props.currentTrack === this.props.songId ? "fa fa-pause" : "fa fa-play"} aria-hidden="true" onClick={this.handlePlayPause}></i>
       </div>
 
   );

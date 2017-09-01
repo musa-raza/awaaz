@@ -16,7 +16,9 @@ const mapStateToProps = (state, ownProps) => {
   return({
     user,
     songs: selectUserSongs(state, user),
-    currentUser: state.session.currentUser
+    currentUser: state.session.currentUser,
+    currentTrackObject: state.audio.currentTrackObject,
+    currentTrack: state.audio.currentTrack
   });
 };
 

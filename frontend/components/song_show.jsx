@@ -23,6 +23,7 @@ setQueue(id) {
 }
 
 render() {
+  debugger
   if (this.props.song === null) {
     return null;
   }
@@ -36,7 +37,7 @@ render() {
               id={this.props.song.id}
               setQueue={this.setQueue.bind(this)}
               song={this.props.song}
-              songId={this.props.songId}
+              songId={this.props.song.id}
               />
             <div className="songshow-info">
               <span className="songheader-name">

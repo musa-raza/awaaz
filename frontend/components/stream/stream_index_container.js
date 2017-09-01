@@ -10,7 +10,9 @@ const mapStateToProps = (state) => {
   return {
     currentUser: state.session.currentUser,
     songs: selectAllSongs(state),
-    status: state.audio.status
+    status: state.audio.status,
+    currentTrackObject: state.audio.currentTrackObject,
+    currentTrack: state.audio.currentTrack
   };
 };
 
