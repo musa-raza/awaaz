@@ -114,7 +114,6 @@ class SongEditForm extends React.Component {
 
 
 const mapStateToProps = (state, ownProps) => {
-  debugger
   let song;
   if (state.entities.songs[ownProps.match.params.songId]) {
     song = state.entities.songs[ownProps.match.params.songId];

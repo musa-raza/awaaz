@@ -8,10 +8,20 @@ class StreamIndex extends React.Component {
   constructor(props) {
     super(props);
     this.setQueue = this.setQueue.bind(this);
+    this.state = {
+      loaded: false
+    };
   }
 
   componentDidMount() {
-    this.props.requestAllSongs();
+    const orig = this;
+    this.props.requestAllSongs()
+    .then(setTimeout(() => orig.setState({
+      loaded: true
+    }), 1500));
+    this.setState({
+      loaded: false
+    });
   }
 
   setQueue(id) {
@@ -26,6 +36,7 @@ class StreamIndex extends React.Component {
             key={song.id}
             currentUser={this.props.currentUser}
             deleteSong={this.props.deleteSong.bind(this)}
+            loaded={this.state.loaded}
             />;
   });
     return(

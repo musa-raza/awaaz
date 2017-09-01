@@ -8,10 +8,19 @@ class UserDetail extends React.Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+      loaded: false
+    };
   }
 
   componentDidMount(){
-    this.props.requestAUser(this.props.match.params.username);
+    const orig = this;
+    this.props.requestAUser(this.props.match.params.username).then(setTimeout(() => orig.setState({
+      loaded: true
+    }), 1500));
+    this.setState({
+      loaded: false
+    });
   }
 
   setQueue(id) {
@@ -49,7 +58,8 @@ class UserDetail extends React.Component {
                 songs={this.props.songs}
                 setQueue={this.setQueue.bind(this)}
                 deleteSong={this.props.deleteSong.bind(this)}
-                currentUser={this.props.currentUser}/>)}
+                currentUser={this.props.currentUser}
+                loaded={this.state.loaded}/>)}
             </div>
           </div>
         </div>
