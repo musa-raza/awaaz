@@ -1,70 +1,79 @@
 # Awaaz
 
-[Heroku link][heroku]
+[Awaaz][heroku]
 
 [heroku]: https://awaaz.herokuapp.com/#/
 
-[Trello link][trello]
+Awaaz is a full stack website based on SoundCloud. It uses React.js on the front-end along with a Redux store of state, a PostgreSQL database and Ruby on Rails to handle the backend. It allows song and comments CRUD.
 
-[trello]: https://trello.com/b/t1sfYDGm/awaaz
+## Features and Implementation
 
-## Minimum Viable Product
+### Continuous play
 
-Awaaz is a web application inspired by Evernote built using Ruby on Rails
-and React/Redux.  By the end of Week 9, this app will, at a minimum, satisfy the
-following criteria with smooth, bug-free navigation, adequate seed data and
-sufficient CSS styling:
+Like SoundCloud, Awaaz allows you to keep listening to the song no matter where you are on the site. Furthermore, it will change the queue depending on whether you select a song from the stream or a user show-page. This was accomplished through an audio slice of state, which relied on a single audio tag in the Audio Player component.
 
-- [ ] Hosting on Heroku
-- [ ] New account creation, login, and guest/demo login
-- [ ] Playing songs on the website
-- [ ] Show pages for users and songs
-- [ ] Comments
+The default state of my audio reducer is as follows:
 
-## Design Docs
-* [View Wireframes][wireframes]
-* [React Components][components]
-* [API endpoints][api-endpoints]
-* [DB schema][schema]
-* [Sample State][sample-state]
+```js
+const initialState = {
+  currentTrackId: undefined,
+  status: '',
+  queue: []
+};
+```
+### Setting the queue
 
-[wireframes]: docs/wireframes
-[components]: docs/component-hierarchy.md
-[sample-state]: docs/sample-state.md
-[api-endpoints]: docs/api-endpoints.md
-[schema]: docs/schema.md
+The current trackId was defined by the queue, which depended on where on the site one navigates to; the currentTrackId is set once the play button is clicked.
+I accomplished this through a setQueue method on my stream-index, which dispatched a set queue action, as follows:
 
-## Implementation Timeline
+```js
+export const setQueue = (songs, currentTrackId) => {
+  const queue = [];
 
-### Phase 1: Backend setup and Front End User Authentication (2 days)
+  if ( songs instanceof Array) {
+    songs.reverse().forEach((song) => {
+      if (song.id <= currentTrackId) {
+        queue.push(song.id);
+      }
+    });
+  } else {
+    queue.push(songs.id);
+  }
 
-**Objective:** Functioning rails project with front-end Authentication
 
-### Phase 2: Users Model API, along with components (1 days)
+  return({
+    type: SET_QUEUE,
+    queue
+  });
+};
+```
+The queue was crucial to my ability to let the audio reducer know what the order of tracks is. Below is an illustration of setting and updating a queue:
 
-**Objective:** Will set up a users show page. After completion, songs will be focused on and will implement songs through API.
+![gif of app](docs/song-show.gif)
 
-### Phase 3: Songs Model API (2 days)
+### Footer Playbar
 
-**Objective:** Songs can be CRUD through API and songs will have a show page.
+The progress bar was another interesting challenge. My default state for the audio player was as follows:
 
-### Phase 4: Comments (1 day)
+```js
+this.state = {
+  elapsedTime: 0,
+  totalTime: 0
+};
+```
+Through this, I had to handle two features of the bar; make the progress proportional the elapsedTime / totalTime, and parse it to display the time in MM:SS format. I had a parsing time function, and applied react in-line styling for the width of the progress div element, which depended on elapsedTime.
 
-**Objective:** Implement adding comments on the song show page.
 
-### Phase 5: Uploads (1 day)
+## Future directions for the project
 
-**Objective:** Songs and users can get profile pictures.
+### Search
 
-### Phase 6: Follows (1 day)
+I would like to implement the ability to search for users and songs. I feel it is crucial to the theme of the app being a social music sharing app.
 
-**Objective:** Implement follows between users and work who to follow component.
+### Waveforms
 
-### Phase 7: - Infinite scroll and styling (1 day)
+I feel the waveforms are crucial for the visuals of the site. It is also what makes SoundCloud a unique web application, and it is worth pursuing.
 
-**Objective:** Add infinite scroll to StreamIndex and spend rest of the time styling
+### Likes and Follows
 
-### Bonus Features (TBD)
-- [ ] Waveforms
-- [ ] Implement Likes
-- [ ] Implement Playlists
+Again, the social theme of SoundCloud makes it great. I would like Awaaz to have the ability to allow users to follow each other, and like each others uploaded songs.
