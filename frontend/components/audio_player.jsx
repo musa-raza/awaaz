@@ -19,6 +19,7 @@ class AudioPlayer extends React.Component {
     this.tickSeconds = this.tickSeconds.bind(this);
     this.parseTime = this.parseTime.bind(this);
     this.handleRewind = this.handleRewind.bind(this);
+    this.handleVolume = this.handleVolume.bind(this);
   }
 
   tickSeconds() {
@@ -100,13 +101,19 @@ class AudioPlayer extends React.Component {
     audio.currentTime = audio.duration;
   }
 
+  handleVolume(e) {
+    const volume = document.getElementById("volume");
+    const audio = document.getElementById("audio");
+    audio.volume = volume.value;
+  }
+
 
   render() {
     let albumart;
     let tracktitle;
     let trackartist;
     let orig = this;
-    if (this.props.currentTrackObject) {
+    if (this.props.currentTrackObject && (this.props.status === 'playing' || this.props.status === 'paused')) {
       albumart = (
         <img className="footer-albumart" src={this.props.currentTrackObject.image_url}
           />
@@ -138,6 +145,9 @@ class AudioPlayer extends React.Component {
                 </div>
                 <div className="totalTime">
                   {this.parseTime(this.state.totalTime)}
+                </div>
+                <div className="volume-div">
+                  <i className="fa fa-volume-up" aria-hidden="true"></i><input id="volume" type="range" min="0" max="1" step="0.1" onChange={this.handleVolume} />
                 </div>
               </div>
               <div className="albuminfo-house">

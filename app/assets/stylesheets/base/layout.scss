@@ -1061,6 +1061,10 @@ input[type="file"] {
   cursor: pointer;
 }
 
+.songartist a:hover {
+  color: black;
+}
+
 .songtitle {
 
   font-size: 20px;
@@ -1541,4 +1545,30 @@ input[type="file"] {
     font-family: 'Jaldi', sans-serif;
     font-weight: bold;
     margin-left: 10px;
+  }
+
+  .volume-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 20px;
+  }
+
+  #volume {
+    background-color: black;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+    height: 2px;
+    cursor: pointer;
+  }
+
+
+
+  #volume::-webkit-slider-thumb {
+    background-color: $orange;
+    -webkit-appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
   }
