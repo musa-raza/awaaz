@@ -23,7 +23,7 @@ class StreamIndexItem extends React.Component {
     if (!loader) {
     return (
       <div className="play-parent">
-        <ReactLoading type="bars" color="orange" height='50' width='50'  />
+        <ReactLoading type="bars" color="orange" height='50px' width='50px'  />
       </div>
     );
     } else {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { playSong, pauseSong, updateQueue, setQueue } from '../actions/audio_actions';
+import { playSong, pauseSong, updateQueue, setQueue, rewindSong } from '../actions/audio_actions';
 import { requestSingleSong } from '../actions/song_actions';
 import { withRouter } from 'react-router-dom';
 import { selectSingleSong } from '../reducers/selectors';
@@ -14,12 +14,16 @@ class AudioPlayer extends React.Component {
     this.handleForward = this.handleForward.bind(this);
     this.state = {
       elapsedTime: 0,
-      totalTime: 0
+      totalTime: 0,
+      duration: null
     };
     this.tickSeconds = this.tickSeconds.bind(this);
     this.parseTime = this.parseTime.bind(this);
     this.handleRewind = this.handleRewind.bind(this);
     this.handleVolume = this.handleVolume.bind(this);
+    this.handleTime = this.handleTime.bind(this);
+    this.seeking = false;
+
   }
 
   tickSeconds() {
@@ -37,6 +41,31 @@ class AudioPlayer extends React.Component {
   }
 
   componentDidMount() {
+    // console.log(this.slider.value);
+    // const slider = document.getElementById('progress-slider');
+      // console.log(this.slider.value);
+    this.slider.value = 0;
+    		this.currentTimeInterval = null;
+        const orig = this;
+
+
+    		this.audio.onloadedmetadata = function() {
+          orig.slider.max = parseInt(orig.audio.duration).toString();
+        };
+
+    		this.audio.onplay = () => {
+    			this.currentTimeInterval = setInterval( () => {
+    				orig.slider.value = orig.audio.currentTime;
+    			}, 500);
+    		};
+
+    		this.audio.onpause = () => {
+    			clearInterval(this.currentTimeInterval);
+    		};
+
+    		this.slider.onchange = (e) => {
+          this.audio.currentTime = parseInt(orig.slider.value);
+    		};
     this.intervalId = setInterval(this.tickSeconds, 900);
   }
 
@@ -83,8 +112,12 @@ class AudioPlayer extends React.Component {
 
   handleRewind(e) {
     e.preventDefault();
-    const audio = document.getElementById("audio");
-    audio.currentTime = 0;
+    // const audio = document.getElementById("audio");
+    if (this.audio.currentTime > 5) {
+      this.audio.currentTime = 0;
+    } else {
+      this.props.rewindSong(this.props.queue);
+    }
   }
 
   handlePlayPause(e) {
@@ -96,6 +129,17 @@ class AudioPlayer extends React.Component {
     }
   }
 
+
+  // handleSeek(e) {
+  //   // e.preventDefault();
+  //   // const orig = this;
+  //   // const audio = document.getElementById("audio");
+  //   // const slider = document.getElementById("progress-slider");
+  //   // slider.addEventListener('mousedown', function(e) { orig.seeking=true; orig.seek(e);});
+  //   // slider.addEventListener('mousemow', function(e) { orig.seek(e);});
+  //   this.audio.currentTime = this.slider.value * (this.state.currentTime/this.state.elapsedTime);
+  // }
+
   handleForward(e) {
     const audio = document.getElementById("audio");
     audio.currentTime = audio.duration;
@@ -105,6 +149,12 @@ class AudioPlayer extends React.Component {
     const volume = document.getElementById("volume");
     const audio = document.getElementById("audio");
     audio.volume = volume.value;
+  }
+
+  handleTime(e) {
+    const audio = document.getElementById("audio");
+    const slider = document.getElementById("progress-slider");
+    slider.value = audio.currentTime;
   }
 
 
@@ -125,8 +175,7 @@ class AudioPlayer extends React.Component {
           <span className="footer-textinfo">Artist: {this.props.currentTrackObject.user_name}</span>
         );
     }
-    if (this.props.currentTrackObject) {
-    }
+
     return(
       <div className="bottom">
         <div className="footer-play">
@@ -141,7 +190,8 @@ class AudioPlayer extends React.Component {
                   {this.parseTime(this.state.elapsedTime)}
                 </div>
                 <div className="progress-div">
-                  <div className="color-div" style= {{width: `${(this.state.elapsedTime / this.state.totalTime)* 100}%`}} />
+                  <div className="color-div"/>
+                  <input id="progress-slider" className="color-div" ref={(slider) => {this.slider = slider;}} type="range" min="0" step="1"  />
                 </div>
                 <div className="totalTime">
                   {this.parseTime(this.state.totalTime)}
@@ -162,7 +212,7 @@ class AudioPlayer extends React.Component {
                 </div>
               </div>
             </div>
-            <audio id="audio"></audio>
+            <audio ref={(audio) => {this.audio = audio;}} id="audio"></audio>
           </div>
       </div>
     );
@@ -173,7 +223,8 @@ const mapStateToProps = (state) => {
   return({
     currentTrack: state.audio.queue[0],
     status: state.audio.status,
-    currentTrackObject: selectSingleSong(state, state.audio.queue[0])
+    currentTrackObject: selectSingleSong(state, state.audio.queue[0]),
+    queue: state.audio.queue
   });
 };
 
@@ -183,7 +234,8 @@ const mapDispatchToProps = (dispatch) => {
     pauseSong: () => dispatch(pauseSong()),
     requestSingleSong: (id) => dispatch(requestSingleSong(id)),
     updateQueue: () => dispatch(updateQueue()),
-    setQueue: () => dispatch(setQueue())
+    setQueue: () => dispatch(setQueue()),
+    rewindSong: (queue) => dispatch(rewindSong(queue))
   });
 };
 

@@ -1,10 +1,12 @@
-import { PLAY_SONG, PAUSE_SONG, SET_QUEUE, UPDATE_QUEUE, SET_USER_QUEUE } from '../actions/audio_actions';
+import { PLAY_SONG, PAUSE_SONG, SET_QUEUE, UPDATE_QUEUE, SET_USER_QUEUE, REWIND_SONG } from '../actions/audio_actions';
 
 const initialState = {
   currentTrackId: undefined,
   status: '',
-  queue: []
+  queue: [],
+  rewindQueue: []
 };
+
 
 const audioReducer = (state = initialState, action) => {
   Object.freeze(state);
@@ -13,7 +15,8 @@ const audioReducer = (state = initialState, action) => {
       return({
         currentTrackId: state.queue[0],
         status: 'playing',
-        queue: state.queue
+        queue: state.queue,
+        rewindQueue: action.rewindQueue
       });
     case PAUSE_SONG:
       return({
@@ -25,20 +28,26 @@ const audioReducer = (state = initialState, action) => {
       return({
         currentTrackId: action.queue[0],
         status: 'playing',
-        queue: action.queue
+        queue: action.queue,
       });
     case UPDATE_QUEUE:
       return({
         currentTrackId: state.queue[1],
         status: 'playing',
-        queue: state.queue.slice(1)
+        queue: state.queue.slice(1),
       });
     case SET_USER_QUEUE:
      return({
        currentTrackId: action.queue[0],
        status: 'playing',
-       queue: action.queue
+       queue: action.queue,
      });
+     case REWIND_SONG:
+      return({
+        currentTrackId: action.queue[0],
+        status: 'playing',
+        queue: action.queue
+      });
     default:
      return state;
   }
