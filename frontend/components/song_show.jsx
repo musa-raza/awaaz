@@ -7,11 +7,53 @@ import { setQueue } from '../actions/audio_actions';
 import Moment from 'react-moment';
 import CommentIndex from './comments/comment_index';
 import CommentContainer from './comments/comment_container';
+import Wavesurfer from 'react-wavesurfer';
 
 class SongShow extends React.Component {
 
 constructor(props) {
   super(props);
+  this.wavesurfer = null;
+  this.state = {
+    playing: false,
+    pos: 0,
+    volume: 0
+  };
+  this.handleTogglePlay = this.handleTogglePlay.bind(this);
+  this.handlePosChange = this.handlePosChange.bind(this);
+  this.handleSurfClick = this.handleSurfClick.bind(this);
+  this.wavesurfer = null;
+}
+
+componentWillReceiveProps(newProps) {
+  const audio = document.getElementById("audio");
+  if (newProps.status === "playing" && newProps.currentTrack === newProps.song.id && newProps.time) {
+this.setState({playing: true, volume: 0, pos: newProps.time});
+} else if (newProps.status === "paused" && newProps.currentTrack === newProps.song.id) {
+this.setState({playing: false, volume: 0, pos: audio.currentTime});
+}
+if (newProps.status === "playing" && newProps.currentTrack != newProps.song.id) {
+    this.setState({playing: false, volume: 0, pos: 0});
+}
+}
+
+handleTogglePlay() {
+  this.setState({
+    playing: !this.state.playing
+  });
+}
+
+handlePosChange(e) {
+  this.setState({
+    pos: e.originalArgs[0]
+  });
+}
+
+
+handleSurfClick(e) {
+  const audio = document.getElementById("audio");
+  let clickpos = (e.clientX - e.currentTarget.getBoundingClientRect().left) / e.currentTarget.clientWidth;
+  audio.currentTime = clickpos * audio.duration;
 }
 
 componentDidMount() {
@@ -51,6 +93,22 @@ render() {
             <Moment className="moment-text" fromNow>{dateTime}</Moment>
           <img className="songshow-albumart" src={this.props.song.image_url} />
           </div>
+          <div className="songshow-wave" onClick={this.handleSurfClick}>
+            <Wavesurfer
+                audioFile={this.props.song.audio_url}
+                onPosChange={this.handlePosChange}
+                playing={this.state.playing}
+                pos={this.state.pos}
+                onClick={this.handleSurfClick}
+                volume='0'
+                options={{waveColor: '#8c8c8c',
+                  progressColor:'#f50',
+                  barWidth: 2,
+                  height: 80}}
+
+                  ref={(Wavesurfer) => {this.wavesurfer = Wavesurfer;}}
+                  />
+            </div>
         </div>
       </div>
       <div className="comment-containerdiv"></div>
@@ -71,6 +129,9 @@ const mapStateToProps = (state, ownProps) => {
   }
   return({
     song,
+    currentTrack: state.audio.currentTrackId,
+    status: state.audio.status,
+    time: state.audio.time
   });
 };
 

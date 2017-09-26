@@ -12,7 +12,8 @@ const mapStateToProps = (state) => {
     songs: selectAllSongs(state),
     status: state.audio.status,
     currentTrackObject: state.audio.currentTrackObject,
-    currentTrack: state.audio.currentTrack
+    currentTrack: state.audio.currentTrackId,
+    time: state.audio.time
   };
 };
 

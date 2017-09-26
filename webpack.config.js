@@ -29,13 +29,24 @@ module.exports = {
     path: path.join(__dirname, 'app', 'assets', 'javascripts'),
     filename: "bundle.js"
   },
-  plugins: plugins,
+  plugins: [
+    new webpack.ProvidePlugin({
+     WaveSurfer: 'wavesurfer.js'
+   })
+  ],
   resolve: {
-    extensions: ["*", ".js", ".jsx"]
+    extensions: ["*", ".js", ".jsx"],
+    alias: {
+      'wavesurfer': path.resolve(__dirname, './node_modules/wavesurfer.js/dist/wavesurfer.js')
+    },
   },
   devtool: 'source-maps',
   module: {
     loaders: [
+      {
+        test: require.resolve("wavesurfer.js"),
+        loader: "expose-loader?WaveSurfer"
+      },
     {
       test: /\.jsx?$/,
       exclude: /(node_modules|bower_components)/,

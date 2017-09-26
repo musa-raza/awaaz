@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { playSong, pauseSong, updateQueue, setQueue, rewindSong } from '../actions/audio_actions';
+import { playSong, pauseSong, updateQueue, setQueue, rewindSong, updateTime } from '../actions/audio_actions';
 import { requestSingleSong } from '../actions/song_actions';
 import { withRouter } from 'react-router-dom';
 import { selectSingleSong } from '../reducers/selectors';
@@ -56,11 +56,12 @@ class AudioPlayer extends React.Component {
     		this.audio.onplay = () => {
     			this.currentTimeInterval = setInterval( () => {
     				orig.slider.value = orig.audio.currentTime;
+            orig.props.updateTime(orig.audio.currentTime);
     			}, 500);
     		};
 
     		this.audio.onpause = () => {
-    			clearInterval(this.currentTimeInterval);
+      	clearInterval(this.currentTimeInterval);
     		};
 
     		this.slider.onchange = (e) => {
@@ -113,10 +114,14 @@ class AudioPlayer extends React.Component {
   handleRewind(e) {
     e.preventDefault();
     // const audio = document.getElementById("audio");
-    if (this.audio.currentTime > 5) {
+    if (this.props.location.pathname === `/songs/${this.props.currentTrack}`) {
       this.audio.currentTime = 0;
     } else {
-      this.props.rewindSong(this.props.queue);
+      if (this.audio.currentTime > 5) {
+        this.audio.currentTime = 0;
+      } else {
+        this.props.rewindSong(this.props.queue);
+      }
     }
   }
 
@@ -235,8 +240,9 @@ const mapDispatchToProps = (dispatch) => {
     requestSingleSong: (id) => dispatch(requestSingleSong(id)),
     updateQueue: () => dispatch(updateQueue()),
     setQueue: () => dispatch(setQueue()),
-    rewindSong: (queue) => dispatch(rewindSong(queue))
+    rewindSong: (queue) => dispatch(rewindSong(queue)),
+    updateTime: (time) => dispatch(updateTime(time))
   });
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(AudioPlayer);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AudioPlayer));

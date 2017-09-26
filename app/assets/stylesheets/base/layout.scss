@@ -1164,6 +1164,7 @@ input[type="file"] {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .songheader-title {
@@ -1590,3 +1591,26 @@ input[type="file"] {
     height: 12px;
     border-radius: 50%;
   }
+
+
+// waveforms
+
+.waveform-div {
+  width: 1000px;
+}
+
+.wave-parent {
+  display: flex;
+  flex-direction: row;
+}
+
+canvas {
+  width: 500px;
+}
+
+.songshow-wave {
+  width: 650px;
+  margin-left: 20px;
+  position: absolute;
+  margin-top: 120px;
+}

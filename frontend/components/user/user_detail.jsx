@@ -59,7 +59,11 @@ class UserDetail extends React.Component {
                 setQueue={this.setQueue.bind(this)}
                 deleteSong={this.props.deleteSong.bind(this)}
                 currentUser={this.props.currentUser}
-                loaded={this.state.loaded}/>)}
+                loaded={this.state.loaded}
+                status={this.props.status}
+                currentTrack={this.props.currentTrack}
+                time={this.props.time}
+                />)}
             </div>
           </div>
         </div>

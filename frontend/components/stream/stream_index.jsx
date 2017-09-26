@@ -37,6 +37,9 @@ class StreamIndex extends React.Component {
             currentUser={this.props.currentUser}
             deleteSong={this.props.deleteSong.bind(this)}
             loaded={this.state.loaded}
+            status={this.props.status}
+            currentTrack={this.props.currentTrack}
+            time={this.props.time}
             />;
   });
     return(

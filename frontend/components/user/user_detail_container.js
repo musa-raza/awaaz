@@ -18,7 +18,9 @@ const mapStateToProps = (state, ownProps) => {
     songs: selectUserSongs(state, user),
     currentUser: state.session.currentUser,
     currentTrackObject: state.audio.currentTrackObject,
-    currentTrack: state.audio.currentTrack
+    currentTrack: state.audio.currentTrackId,
+    status: state.audio.status,
+    time: state.audio.time
   });
 };
 

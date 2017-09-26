@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { playSong, pauseSong } from '../actions/audio_actions';
 import { connect } from 'react-redux';
+import { selectSingleSong } from '../reducers/selectors';
 
 class PlayButton extends React.Component {
 
@@ -50,7 +51,8 @@ class PlayButton extends React.Component {
 const mapStateToProps = (state) => {
   return ({
       currentTrack: state.audio.currentTrackId,
-      status: state.audio.status
+      status: state.audio.status,
+      currentTrackObject: selectSingleSong(state, state.audio.queue[0])
     });
   };
 

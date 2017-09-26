@@ -4,6 +4,7 @@ export const SET_QUEUE = 'SET_QUEUE';
 export const UPDATE_QUEUE = 'UPDATE_QUEUE';
 export const SET_USER_QUEUE = 'SET_USER_QUEUE';
 export const REWIND_SONG = 'REWIND_SONG';
+export const UPDATE_TIME = 'UPDATE_TIME';
 
 export const playSong = () => {
   return({
@@ -79,5 +80,12 @@ export const rewindSong  = (array) => {
   return({
     type: REWIND_SONG,
     queue
+  });
+};
+
+export const updateTime = (time) => {
+  return({
+    type: UPDATE_TIME,
+    time
   });
 };

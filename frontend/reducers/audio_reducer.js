@@ -1,4 +1,5 @@
-import { PLAY_SONG, PAUSE_SONG, SET_QUEUE, UPDATE_QUEUE, SET_USER_QUEUE, REWIND_SONG } from '../actions/audio_actions';
+import { PLAY_SONG, PAUSE_SONG, SET_QUEUE, UPDATE_QUEUE, SET_USER_QUEUE, REWIND_SONG, UPDATE_TIME } from '../actions/audio_actions';
+import { merge } from 'lodash';
 
 const initialState = {
   currentTrackId: undefined,
@@ -48,6 +49,10 @@ const audioReducer = (state = initialState, action) => {
         status: 'playing',
         queue: action.queue
       });
+      case UPDATE_TIME:
+      let newState = merge({}, state);
+      newState.time = action.time;
+      return newState;
     default:
      return state;
   }

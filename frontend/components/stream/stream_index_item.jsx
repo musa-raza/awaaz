@@ -4,14 +4,55 @@ import PlayButton from '../play_button';
 import Moment from 'react-moment';
 import 'moment-timezone';
 import ReactLoading from 'react-loading';
-
+import Wavesurfer from 'react-wavesurfer';
 
 class StreamIndexItem extends React.Component {
 
   constructor(props) {
     super(props);
-  }
+    this.wavesurfer = null;
+    this.state = {
+      playing: false,
+      pos: 0,
+      volume: 0
+    };
+    this.handleTogglePlay = this.handleTogglePlay.bind(this);
+    this.handlePosChange = this.handlePosChange.bind(this);
+    this.handleSurfClick = this.handleSurfClick.bind(this);
+    }
 
+
+
+    componentWillReceiveProps(newProps) {
+      const audio = document.getElementById("audio");
+      if (newProps.status === "playing" && newProps.currentTrack === newProps.song.id && newProps.time) {
+    this.setState({playing: true, volume: 0, pos: newProps.time});
+  } else if (newProps.status === "paused" && newProps.currentTrack === newProps.song.id) {
+    this.setState({playing: false, volume: 0, pos: audio.currentTime});
+  }
+    else if (newProps.status === "playing" && newProps.currentTrack != newProps.song.id) {
+        this.setState({playing: false, volume: 0, pos: 0});
+    }
+    }
+
+    handleTogglePlay() {
+      this.setState({
+        playing: !this.state.playing
+      });
+    }
+
+    handlePosChange(e) {
+      this.setState({
+        pos: e.originalArgs[0]
+      });
+    }
+
+
+    handleSurfClick(e) {
+      const audio = document.getElementById("audio");
+      let clickpos = (e.clientX - e.currentTarget.getBoundingClientRect().left) / e.currentTarget.clientWidth;
+      audio.currentTime = clickpos * audio.duration;
+    }
 
 
 
@@ -59,15 +100,33 @@ class StreamIndexItem extends React.Component {
                   </div>
                 </div>
               </div>
+              <div className="waveform-div" onClick={this.handleSurfClick}>
+                <Wavesurfer
+                  audioFile={this.props.song.audio_url}
+                  onPosChange={this.handlePosChange}
+                  playing={this.state.playing}
+                  pos={this.state.pos}
+                  onClick={this.handleSurfClick}
+                  volume='0'
+                  options={{waveColor: '#8c8c8c',
+                    progressColor:'#f50',
+                    barWidth: 2,
+                    height: 80}}
+
+                    ref={(Wavesurfer) => {this.wavesurfer = Wavesurfer;}}
+                    />
+                </div>
               <div className="delbutton-div">
                 {editButton}
                 {delButton}
+              </div>
+              <div>
+
               </div>
             </div>
           );
         }
       }
-
 }
 
 
