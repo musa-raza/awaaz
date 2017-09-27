@@ -964,7 +964,15 @@ input[type="file"] {
   flex-direction: row;
   padding-bottom: 18px;
   text-decoration: none;
-  justify-content: center;
+  justify-content: baseline;
+}
+
+.delete-bro {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .play-artist-pic {
@@ -1084,11 +1092,9 @@ input[type="file"] {
 }
 
 .delbutton-div {
-  width: 10%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding-top: 96px;
 }
 
 .play-audio-parent {
@@ -1099,9 +1105,9 @@ input[type="file"] {
 }
 
 .delbutton-div i {
-  padding: 0px 40px 0px 40px;
   cursor: pointer;
   color: black;
+  padding: 10px;
 }
 
 .delbutton-div a {

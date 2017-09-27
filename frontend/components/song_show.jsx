@@ -26,12 +26,13 @@ constructor(props) {
 }
 
 componentWillReceiveProps(newProps) {
+  const audio = document.getElementById("audio");
   if (newProps.status === "playing" && newProps.currentTrack === newProps.song.id && newProps.time) {
 this.setState({playing: true, volume: 0, pos: newProps.time});
 } else if (newProps.status === "paused" && newProps.currentTrack === newProps.song.id) {
-this.setState({playing: false, volume: 0, pos: newProps.time});
+this.setState({playing: false, volume: 0, pos: audio.currentTime});
 }
-if (newProps.status === "playing" && newProps.currentTrack != newProps.song.id) {
+else if (newProps.status === "playing" && newProps.currentTrack != newProps.song.id) {
     this.setState({playing: false, volume: 0, pos: 0});
 }
 }
@@ -100,10 +101,10 @@ render() {
                 pos={this.state.pos}
                 onClick={this.handleSurfClick}
                 volume='0'
-                options={{waveColor: '#8c8c8c',
+                options={{waveColor: 'white',
                   progressColor:'#f50',
                   barWidth: 2,
-                  height: 80}}
+                  height: 100}}
 
                   ref={(Wavesurfer) => {this.wavesurfer = Wavesurfer;}}
                   />

@@ -24,10 +24,11 @@ class StreamIndexItem extends React.Component {
 
 
     componentWillReceiveProps(newProps) {
+      const audio = document.getElementById("audio");
       if (newProps.status === "playing" && newProps.currentTrack === newProps.song.id && newProps.time) {
     this.setState({playing: true, volume: 0, pos: newProps.time});
   } else if (newProps.status === "paused" && newProps.currentTrack === newProps.song.id) {
-    this.setState({playing: false, volume: 0, pos: newProps.time});
+    this.setState({playing: false, volume: 0, pos: audio.currentTime});
   }
     else if (newProps.status === "playing" && newProps.currentTrack != newProps.song.id) {
         this.setState({playing: false, volume: 0, pos: 0});
@@ -76,6 +77,7 @@ class StreamIndexItem extends React.Component {
           return(
             <div className="play-audio-parent">
               <div className="play-parent">
+                <div className="delete-bro">
                 <div className="artist-info-div">
                   <div className="artist-img-div">
                     <Link to={`/users/${this.props.song.user_name}`}>
@@ -86,6 +88,11 @@ class StreamIndexItem extends React.Component {
                     <Link to={`/users/${this.props.song.user_name}`}>{this.props.song.user_name}</Link>
                     <span>posted a track <Moment fromNow>{dateFormat}</Moment>:</span>
                   </div>
+                </div>
+                <div className="delbutton-div">
+                  {editButton}
+                  {delButton}
+                </div>
                 </div>
                 <div className="artistpost-songart-div">
                   <div className="albumart-div">
@@ -115,10 +122,7 @@ class StreamIndexItem extends React.Component {
                     </div>
                 </div>
               </div>
-              <div className="delbutton-div">
-                {editButton}
-                {delButton}
-              </div>
+
             </div>
           );
         }
