@@ -15,15 +15,15 @@ class AudioPlayer extends React.Component {
     this.state = {
       elapsedTime: 0,
       totalTime: 0,
-      duration: null
+      duration: null,
+      repeatColor: 'black'
     };
     this.tickSeconds = this.tickSeconds.bind(this);
     this.parseTime = this.parseTime.bind(this);
     this.handleRewind = this.handleRewind.bind(this);
     this.handleVolume = this.handleVolume.bind(this);
     this.handleTime = this.handleTime.bind(this);
-    this.seeking = false;
-
+    this.handleRepeat = this.handleRepeat.bind(this);
   }
 
   tickSeconds() {
@@ -134,6 +134,19 @@ class AudioPlayer extends React.Component {
     }
   }
 
+  handleRepeat(e) {
+    e.preventDefault();
+    this.audio.loop = this.audio.loop === true ? false : true;
+    if (this.state.repeatColor === 'black') {
+      this.setState({
+        repeatColor: '#f50'
+      });
+    } else {
+      this.setState({
+        repeatColor: 'black'
+      });
+    }
+  }
 
   // handleSeek(e) {
   //   // e.preventDefault();
@@ -188,8 +201,7 @@ class AudioPlayer extends React.Component {
               <i className="fa fa-step-backward" aria-hidden="true" onClick={this.handleRewind}></i>
               <i className={(this.props.status === 'playing') ? "fa fa-pause" : "fa fa-play"} aria-hidden="true" onClick={this.handlePlayPause}></i>
               <i className="fa fa-step-forward" aria-hidden="true" onClick={this.handleForward}></i>
-              <i className="fa fa-random" aria-hidden="true"></i>
-              <i className="fa fa-retweet" aria-hidden="true"></i>
+                <i className="fa fa-repeat" style={{color: this.state.repeatColor}} aria-hidden="true" onClick={this.handleRepeat}></i>
               <div className="progressbar-div">
                 <div className="elapsedTime">
                   {this.parseTime(this.state.elapsedTime)}

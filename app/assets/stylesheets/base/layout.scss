@@ -1043,8 +1043,6 @@ input[type="file"] {
   justify-content: baseline;
   align-items: center;
   font-family: 'Jaldi', sans-serif;
-  height: 50px;
-  width: 500px;
   padding-left: 10px;
 }
 
@@ -1096,7 +1094,7 @@ input[type="file"] {
 .play-audio-parent {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -1596,7 +1594,14 @@ input[type="file"] {
 // waveforms
 
 .waveform-div {
-  width: 1000px;
+  width: 800px;
+  margin-left: 90px;
+  padding-top: 90px;
+}
+
+.wave-father {
+  display: flex;
+  flex-direction: row;
 }
 
 .wave-parent {

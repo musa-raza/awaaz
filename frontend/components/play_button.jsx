@@ -52,7 +52,8 @@ const mapStateToProps = (state) => {
   return ({
       currentTrack: state.audio.currentTrackId,
       status: state.audio.status,
-      currentTrackObject: selectSingleSong(state, state.audio.queue[0])
+      currentTrackObject: selectSingleSong(state, state.audio.queue[0]),
+      
     });
   };
 

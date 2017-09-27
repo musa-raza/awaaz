@@ -24,11 +24,10 @@ class StreamIndexItem extends React.Component {
 
 
     componentWillReceiveProps(newProps) {
-      const audio = document.getElementById("audio");
       if (newProps.status === "playing" && newProps.currentTrack === newProps.song.id && newProps.time) {
     this.setState({playing: true, volume: 0, pos: newProps.time});
   } else if (newProps.status === "paused" && newProps.currentTrack === newProps.song.id) {
-    this.setState({playing: false, volume: 0, pos: audio.currentTime});
+    this.setState({playing: false, volume: 0, pos: newProps.time});
   }
     else if (newProps.status === "playing" && newProps.currentTrack != newProps.song.id) {
         this.setState({playing: false, volume: 0, pos: 0});
@@ -98,30 +97,27 @@ class StreamIndexItem extends React.Component {
                       setQueue={this.props.setQueue.bind(this)}
                       />
                   </div>
+                  <div className="waveform-div" onClick={this.handleSurfClick}>
+                    <Wavesurfer
+                      audioFile={this.props.song.audio_url}
+                      onPosChange={this.handlePosChange}
+                      playing={this.state.playing}
+                      pos={this.state.pos}
+                      onClick={this.handleSurfClick}
+                      volume='0'
+                      options={{waveColor: '#8c8c8c',
+                        progressColor:'#f50',
+                        barWidth: 2,
+                        height: 80}}
+
+                        ref={(Wavesurfer) => {this.wavesurfer = Wavesurfer;}}
+                        />
+                    </div>
                 </div>
               </div>
-              <div className="waveform-div" onClick={this.handleSurfClick}>
-                <Wavesurfer
-                  audioFile={this.props.song.audio_url}
-                  onPosChange={this.handlePosChange}
-                  playing={this.state.playing}
-                  pos={this.state.pos}
-                  onClick={this.handleSurfClick}
-                  volume='0'
-                  options={{waveColor: '#8c8c8c',
-                    progressColor:'#f50',
-                    barWidth: 2,
-                    height: 80}}
-
-                    ref={(Wavesurfer) => {this.wavesurfer = Wavesurfer;}}
-                    />
-                </div>
               <div className="delbutton-div">
                 {editButton}
                 {delButton}
-              </div>
-              <div>
-
               </div>
             </div>
           );

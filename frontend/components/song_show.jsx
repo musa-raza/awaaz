@@ -26,11 +26,10 @@ constructor(props) {
 }
 
 componentWillReceiveProps(newProps) {
-  const audio = document.getElementById("audio");
   if (newProps.status === "playing" && newProps.currentTrack === newProps.song.id && newProps.time) {
 this.setState({playing: true, volume: 0, pos: newProps.time});
 } else if (newProps.status === "paused" && newProps.currentTrack === newProps.song.id) {
-this.setState({playing: false, volume: 0, pos: audio.currentTime});
+this.setState({playing: false, volume: 0, pos: newProps.time});
 }
 if (newProps.status === "playing" && newProps.currentTrack != newProps.song.id) {
     this.setState({playing: false, volume: 0, pos: 0});
