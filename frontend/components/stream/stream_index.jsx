@@ -30,7 +30,7 @@ class StreamIndex extends React.Component {
 
   render() {
     const SongItems = this.props.songs.map((song) => {
-    return <StreamIndexItem setQueue={this.setQueue.bind(this)}
+          return <StreamIndexItem setQueue={this.setQueue.bind(this)}
             song={song}
             songs={this.props.songs}
             key={song.id}
@@ -40,6 +40,7 @@ class StreamIndex extends React.Component {
             status={this.props.status}
             currentTrack={this.props.currentTrack}
             time={this.props.time}
+            likes={song.like_ids}
             />;
   });
     return(

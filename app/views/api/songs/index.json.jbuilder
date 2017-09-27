@@ -8,6 +8,7 @@
       json.user_avatar_url asset_path(song.user.avatar.url)
       json.user_name song.user.username
       json.comment_ids song.comments.order(created_at: :desc).map(&:id)
+      json.like_ids song.likes.map(&:user_id)
     end
   end
 end

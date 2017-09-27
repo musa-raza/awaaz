@@ -23,6 +23,8 @@ class User < ApplicationRecord
 
   has_many :songs
 
+  has_many :likes
+
   has_many :comments
 
   has_attached_file :avatar, default_url: "https://s3.us-east-2.amazonaws.com/awaaz-dev/default-avatar.png"

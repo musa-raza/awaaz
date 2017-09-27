@@ -97,12 +97,17 @@ class StreamIndexItem extends React.Component {
                 <div className="artistpost-songart-div">
                   <div className="albumart-div">
                     <img src={this.props.song.image_url}></img>
+
                     <PlayButton
                       id={this.props.song.id}
                       name={this.props.song.user_name} title={this.props.song.title}
                       songId={this.props.song.id}
                       setQueue={this.props.setQueue.bind(this)}
                       />
+                      <div className="like-div">
+                        <i className="fa fa-heart" aria-hidden="true"></i>
+                        <span className="likecount">{this.props.likes.length}</span>
+                      </div>
                   </div>
                   <div className="waveform-div" onClick={this.handleSurfClick}>
                     <Wavesurfer
@@ -120,6 +125,7 @@ class StreamIndexItem extends React.Component {
                         ref={(Wavesurfer) => {this.wavesurfer = Wavesurfer;}}
                         />
                     </div>
+
                 </div>
               </div>
 

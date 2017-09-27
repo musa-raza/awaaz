@@ -63,6 +63,7 @@ class UserDetail extends React.Component {
                 status={this.props.status}
                 currentTrack={this.props.currentTrack}
                 time={this.props.time}
+                likes={song.like_ids}
                 />)}
             </div>
           </div>
