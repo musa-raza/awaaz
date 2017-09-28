@@ -63,108 +63,48 @@
 
 
 
-song3 = Song.create!(
- title: "Often",
- genre: "Tropical House",
- description: "Remix of Often by the Weeknd",
- user_id: kygo.id,
- audio: "https://s3.us-east-2.amazonaws.com/awaaz-dev/often+kygo.mp3",
- image: "https://s3.us-east-2.amazonaws.com/awaaz-dev/The-Weeknd-Often-Kygo-Remix.jpg"
-)
-
-song4 = Song.create!(
- title: "No Diggity",
- genre: "Tropical House",
- description: "Remix feat. Ed Sheeran",
- user_id: kygo.id,
- audio: "https://s3.us-east-2.amazonaws.com/awaaz-dev/no+diggity+kygo.mp3",
- image: "https://s3.us-east-2.amazonaws.com/awaaz-dev/kygo-no-diggity.jpg"
-)
-
-song5 =  Song.create!(
- title: "Midnight Life",
- genre: "Deep House",
- description: "Remix feat. Kanye West",
- user_id: m83.id,
- audio: "https://s3.us-east-2.amazonaws.com/awaaz-dev/m83+midnight+life.mp3",
- image: "https://s3.us-east-2.amazonaws.com/awaaz-dev/m83.jpg"
-)
-
-song6 =  Song.create!(
- title: "Sonnentanz",
- genre: "Saxophone Melody",
- description: "Saxophone for days",
- user_id: klangkarusell.id,
- audio: "https://s3.us-east-2.amazonaws.com/awaaz-dev/sonnentanz+klangkarussell.mp3",
- image: "https://s3.us-east-2.amazonaws.com/awaaz-dev/klangkarusell.jpg"
-)
 
 song7 =  Song.create!(
- title: "Sonnentanz",
- genre: "Deep House",
+ title: "Netzwerk",
+ genre: "deephouse",
  description: "Saxophone for days",
  user_id: klangkarusell.id,
- audio: "https://s3.us-east-2.amazonaws.com/awaaz-dev/sonnentanz+klangkarussell.mp3",
+ audio: "https://s3.us-east-2.amazonaws.com/awaaz-dev/klangkarussell+netzwerk.mp3",
  image: "https://s3.us-east-2.amazonaws.com/awaaz-dev/netzwerk.jpg"
-)
-
-song8 =  Song.create!(
- title: "Old Thing Back",
- genre: "Hip House",
- description: "Remix feat. Notorious BIG",
- user_id: matoma.id,
- audio: "https://s3.us-east-2.amazonaws.com/awaaz-dev/matoma+old+thing+back.mp3",
- image: "https://s3.us-east-2.amazonaws.com/awaaz-dev/matoma+.jpg"
 )
 
 song9 =  Song.create!(
  title: "Yeah x Mo Money",
- genre: "Hip House",
+ genre: "hiphouse",
  description: "Remix feat. Notorious BIG",
  user_id: matoma.id,
  audio: "https://s3.us-east-2.amazonaws.com/awaaz-dev/matoma+yeah.mp3",
  image: "https://s3.us-east-2.amazonaws.com/awaaz-dev/yeah+matoma+mo+money.jpg"
 )
 
+
+
 song10 = Song.create!(
  title: "Jubel",
- genre: "Tropical house",
+ genre: "tropicalhouse",
  description: "Melodic House",
  user_id: klingande.id,
  audio: "https://s3.us-east-2.amazonaws.com/awaaz-dev/jubel+klingande.mp3",
  image: "https://s3.us-east-2.amazonaws.com/awaaz-dev/klingande.jpg"
 )
 
-song11 = Song.create!(
- title: "Punga",
- genre: "House",
- description: "Saxophone Vibes",
- user_id: klingande.id,
- audio: "https://s3.us-east-2.amazonaws.com/awaaz-dev/punga+klingande.mp3",
- image: "https://s3.us-east-2.amazonaws.com/awaaz-dev/punga+jpg.jpg"
-)
-
 song12 = Song.create!(
 title: "Burn",
-genre: "Deep House",
+genre: "deephouse",
 description: "Remix feat. Ellie Goulding",
 user_id: gryffin.id,
 audio: "https://s3.us-east-2.amazonaws.com/awaaz-dev/Burn+gryffin.mp3",
 image: "https://s3.us-east-2.amazonaws.com/awaaz-dev/burn+cover.jpg"
 )
 
-song13 = Song.create!(
-title: "First Time",
-genre: "Deep House",
-description: "Remix feat. Ellie Goulding",
-user_id: gryffin.id,
-audio: "https://s3.us-east-2.amazonaws.com/awaaz-dev/First+time+gryffin.mp3",
-image: "https://s3.us-east-2.amazonaws.com/awaaz-dev/first+time+.jpg"
-)
-
 song1 = Song.create!(
  title: "Lal Meri Pat",
- genre: "Sufi Rock",
+ genre: "sufirock",
  description: "Fusion of sufi and rock music",
  user_id: junoon.id,
  audio: "https://s3.us-east-2.amazonaws.com/awaaz-dev/junoon+lal+meri.mp3",
@@ -172,20 +112,91 @@ song1 = Song.create!(
 )
 
 
+
+song11 = Song.create!(
+ title: "Punga",
+ genre: "house",
+ description: "Saxophone Vibes",
+ user_id: klingande.id,
+ audio: "https://s3.us-east-2.amazonaws.com/awaaz-dev/punga+klingande.mp3",
+ image: "https://s3.us-east-2.amazonaws.com/awaaz-dev/punga+jpg.jpg"
+)
+
+song4 = Song.create!(
+ title: "No Diggity",
+ genre: "tropicalhouse",
+ description: "Remix feat. Ed Sheeran",
+ user_id: kygo.id,
+ audio: "https://s3.us-east-2.amazonaws.com/awaaz-dev/no+diggity+kygo.mp3",
+ image: "https://s3.us-east-2.amazonaws.com/awaaz-dev/kygo-no-diggity.jpg"
+)
+
+
+song6 =  Song.create!(
+ title: "Sonnentanz",
+ genre: "saxhouse",
+ description: "Saxophone for days",
+ user_id: klangkarusell.id,
+ audio: "https://s3.us-east-2.amazonaws.com/awaaz-dev/sonnentanz+klangkarussell.mp3",
+ image: "https://s3.us-east-2.amazonaws.com/awaaz-dev/klangkarusell.jpg"
+)
+
+
+
+song13 = Song.create!(
+title: "First Time",
+genre: "deephouse",
+description: "Remix feat. Ellie Goulding",
+user_id: gryffin.id,
+audio: "https://s3.us-east-2.amazonaws.com/awaaz-dev/First+time+gryffin.mp3",
+image: "https://s3.us-east-2.amazonaws.com/awaaz-dev/first+time+.jpg"
+)
+
+
+
+song14 = Song.create!(
+  title: "Rapture",
+  genre: "house",
+  description: "Remix with Avicii",
+  user_id: nadia.id,
+  audio: "https://s3.us-east-2.amazonaws.com/awaaz-dev/nadiaali+rapture.mp3",
+  image: "https://s3.us-east-2.amazonaws.com/awaaz-dev/Nadia_Ali_Rapturealbumart.jpg"
+)
+
+
 song2 = Song.create!(
 title: "Sayonee",
-genre: "Sufi Rock",
+genre: "sufirock",
 description: "Fusion of sufi and rock music",
 user_id: junoon.id,
 audio: "https://s3.us-east-2.amazonaws.com/awaaz-dev/junoon+sayonee.mp3",
 image: "https://s3.us-east-2.amazonaws.com/awaaz-dev/junoon-logo-primary.jpg"
 )
 
-song14 = Song.create!(
-title: "Rapture",
-genre: "House",
-description: "Remix with Avicii",
-user_id: nadia.id,
-audio: "https://s3.us-east-2.amazonaws.com/awaaz-dev/nadiaali+rapture.mp3",
-image: "https://s3.us-east-2.amazonaws.com/awaaz-dev/Nadia_Ali_Rapturealbumart.jpg"
+
+song3 = Song.create!(
+ title: "Often",
+ genre: "tropicalhouse",
+ description: "Remix of Often by the Weeknd",
+ user_id: kygo.id,
+ audio: "https://s3.us-east-2.amazonaws.com/awaaz-dev/often+kygo.mp3",
+ image: "https://s3.us-east-2.amazonaws.com/awaaz-dev/The-Weeknd-Often-Kygo-Remix.jpg"
 )
+
+song8 =  Song.create!(
+   title: "Old Thing Back",
+   genre: "hiphouse",
+   description: "Remix feat. Notorious BIG",
+   user_id: matoma.id,
+   audio: "https://s3.us-east-2.amazonaws.com/awaaz-dev/matoma+old+thing+back.mp3",
+   image: "https://s3.us-east-2.amazonaws.com/awaaz-dev/matoma+.jpg"
+  )
+
+  song5 =  Song.create!(
+   title: "Midnight Life",
+   genre: "deephouse",
+   description: "Remix feat. Kanye West",
+   user_id: m83.id,
+   audio: "https://s3.us-east-2.amazonaws.com/awaaz-dev/m83+midnight+life.mp3",
+   image: "https://s3.us-east-2.amazonaws.com/awaaz-dev/m83.jpg"
+  )
