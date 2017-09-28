@@ -14,7 +14,10 @@ var prodPlugins = [
     compress: {
       warnings: true
     }
-  })
+  }),
+  new webpack.ProvidePlugin({
+   WaveSurfer: 'wavesurfer.js'
+ })
 ];
 
 plugins = plugins.concat(
@@ -29,11 +32,7 @@ module.exports = {
     path: path.join(__dirname, 'app', 'assets', 'javascripts'),
     filename: "bundle.js"
   },
-  plugins: [
-    new webpack.ProvidePlugin({
-     WaveSurfer: 'wavesurfer.js'
-   })
-  ],
+  plugins: plugins,
   resolve: {
     extensions: ["*", ".js", ".jsx"],
     alias: {
