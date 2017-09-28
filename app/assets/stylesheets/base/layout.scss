@@ -364,7 +364,6 @@ html {
 //navbar
 
 .nav-profile {
-  border-right: 1px solid #111;
   text-align: center;
   padding: 15px;
   font-size: 24px;
@@ -471,7 +470,6 @@ cursor: pointer;
 }
 
 .nav-logout {
-  border-right: 1px solid #111;
   text-align: center;
   padding: 15px;
   cursor: pointer;
@@ -495,7 +493,6 @@ cursor: pointer;
 }
 
 .nav-home {
-  border-right: 1px solid #111;
   text-align: center;
   padding: 15px;
 }
@@ -511,7 +508,6 @@ cursor: pointer;
 }
 
 .nav-logout {
-  border-right: 1px solid #111;
   text-align: center;
   padding: 15px;
 }
@@ -567,8 +563,7 @@ cursor: pointer;
   color: $orange;
 }
 
-.nav-upload  {
-  border-right: 1px solid #111;
+.nav-upload{
   text-align: center;
   padding: 15px;
 }
@@ -1062,6 +1057,7 @@ input[type="file"] {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 3px;
   border-radius:10px;
   font-family: 'Jaldi', sans-serif;
   font-size: 17px;
@@ -1073,7 +1069,7 @@ input[type="file"] {
 
 .genre-div span {
   text-align: center;
-  width: 80px;
+  width: 100px;
 }
 
 
