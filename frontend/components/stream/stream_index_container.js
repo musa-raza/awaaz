@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
 import StreamIndex from './stream_index';
-import { selectAllSongs } from '../../reducers/selectors';
+import { selectAllSongs, isLiked } from '../../reducers/selectors';
 import { logout } from '../../actions/session_actions';
 import { playSong, pauseSong, setQueue } from '../../actions/audio_actions';
 import { requestAllSongs, requestSingleSong } from '../../actions/song_actions';
 import { deleteSong } from '../../actions/song_actions';
+import { createLike, deleteLike } from '../../actions/like_actions';
 
 const mapStateToProps = (state) => {
   return {
@@ -25,7 +26,9 @@ const mapDispatchToProps = (dispatch) => {
     requestSingleSong: (song) => dispatch(requestSingleSong(song)),
     logout: () => dispatch(logout()),
     setQueue: (songs, id) => dispatch(setQueue(songs, id)),
-    deleteSong: (song) => dispatch(deleteSong(song))
+    deleteSong: (song) => dispatch(deleteSong(song)),
+    createLike: (like) => dispatch(createLike(like)),
+    deleteLike: (like) => dispatch(deleteLike(like))
   };
 };
 

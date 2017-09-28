@@ -5,6 +5,7 @@ import Moment from 'react-moment';
 import 'moment-timezone';
 import ReactLoading from 'react-loading';
 import Wavesurfer from 'react-wavesurfer';
+import LikeButton from '../like_button';
 
 class StreamIndexItem extends React.Component {
 
@@ -14,14 +15,24 @@ class StreamIndexItem extends React.Component {
     this.state = {
       playing: false,
       pos: 0,
-      volume: 0
+      volume: 0,
     };
     this.handleTogglePlay = this.handleTogglePlay.bind(this);
     this.handlePosChange = this.handlePosChange.bind(this);
     this.handleSurfClick = this.handleSurfClick.bind(this);
+    this.handleLike = this.handleLike.bind(this);
+    this.handleUnLike = this.handleUnLike.bind(this);
     }
 
+    handleLike(e) {
+      e.preventDefault();
+      this.props.createLike({song_id: this.props.song.id});
+    }
 
+    handleUnLike(e) {
+      e.preventDefault();
+      this.props.deleteLike(this.props.song.id);
+    }
 
     componentWillReceiveProps(newProps) {
       const audio = document.getElementById("audio");
@@ -40,6 +51,8 @@ class StreamIndexItem extends React.Component {
         playing: !this.state.playing
       });
     }
+
+
 
     handlePosChange(e) {
       this.setState({
@@ -60,6 +73,7 @@ class StreamIndexItem extends React.Component {
     let dateFormat = this.props.song.created_at;
     let delButton;
     let editButton;
+    let likeButton;
     let loader = this.props.loaded;
     if (!loader) {
     return (
@@ -73,6 +87,17 @@ class StreamIndexItem extends React.Component {
           editButton =  <Link to={`/songs/${this.props.song.id}/edit`}>
             <i className="fa fa-pencil" aria-hidden="true"></i>
           </Link>;
+        }
+        if (this.props.song != undefined && this.props.song.like_ids.includes(this.props.currentUser.id)) {
+          likeButton = <div className="unlike-div" onClick={this.handleUnLike}>
+              <i className="fa fa-heart" aria-hidden="true"></i>
+              <span className="unlikecount">{this.props.likes.length}</span>
+            </div>;
+        } else {
+          likeButton = <div className="like-div" onClick={this.handleLike}>
+              <i className="fa fa-heart" aria-hidden="true"></i>
+              <span className="likecount">{this.props.likes.length}</span>
+            </div>;
         }
           return(
             <div className="play-audio-parent">
@@ -104,10 +129,15 @@ class StreamIndexItem extends React.Component {
                       songId={this.props.song.id}
                       setQueue={this.props.setQueue.bind(this)}
                       />
-                      <div className="like-div">
-                        <i className="fa fa-heart" aria-hidden="true"></i>
-                        <span className="likecount">{this.props.likes.length}</span>
-                      </div>
+                    <LikeButton
+                      id={this.props.song.id}
+                      song={this.props.song}
+                      likes={this.props.song.like_ids}
+                      currentUser={this.props.currentUser}
+                      />
+                    <div className="genre-div">
+                      <span>#{this.props.song.genre}</span>
+                    </div>
                   </div>
                   <div className="waveform-div" onClick={this.handleSurfClick}>
                     <Wavesurfer

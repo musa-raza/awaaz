@@ -27,11 +27,14 @@ class UserDetail extends React.Component {
     this.props.setUserQueue(this.props.songs, id);
   }
 
+
   componentWillReceiveProps(nextProps) {
-    if ( this.props.user === null || this.props.user.username !== nextProps.match.params.username ) {
+
+    if ( this.props.user === null || this.props.user.username != nextProps.match.params.username) {
       this.props.requestAUser(this.props.match.params.username);
     }
   }
+
 
   render() {
     if (this.props.user === null) {
@@ -47,7 +50,6 @@ class UserDetail extends React.Component {
         </div>
         <div className="user-links">
           <ul className="user-options">
-            <li>All</li>
             <li>Tracks</li>
           </ul>
           <div className="usersong-parent">
@@ -64,6 +66,8 @@ class UserDetail extends React.Component {
                 currentTrack={this.props.currentTrack}
                 time={this.props.time}
                 likes={song.like_ids}
+                createLike={this.props.createLike}
+                deleteLike={this.props.deleteLike}
                 />)}
             </div>
           </div>

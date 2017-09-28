@@ -88,6 +88,9 @@ render() {
                 {this.props.song.title}
               </span>
             </div>
+            <div className="genre-div">
+              <span>#{this.props.song.genre}</span>
+            </div>
             </div>
             <div className="alb-div">
             <Moment className="moment-text" fromNow>{dateTime}</Moment>

@@ -40,14 +40,7 @@ class NavBar extends React.Component {
               Home
             </NavLink>
           </div>
-          <div className="nav-collection">
-            <NavLink onClick={this.setFalse} to="/collection">
-              Collection
-            </NavLink>
-          </div>
-          <div className="nav-search">
-            <input type="search" placeholder="Search" />
-          </div>
+        
           <div className="nav-upload">
             <NavLink onClick={this.setFalse} to="/upload">
               Upload

@@ -41,6 +41,8 @@ class StreamIndex extends React.Component {
             currentTrack={this.props.currentTrack}
             time={this.props.time}
             likes={song.like_ids}
+            createLike={this.props.createLike.bind(this)}
+            deleteLike={this.props.deleteLike.bind(this)}
             />;
   });
     return(
@@ -49,12 +51,6 @@ class StreamIndex extends React.Component {
           <div className="index-div">
           <div>
             <NavLink className="stream-heading" to='/stream'> Stream</NavLink>
-          </div>
-          <div>
-            <NavLink className="stream-heading" to='/charts'>Charts</NavLink>
-          </div>
-          <div>
-            <NavLink className="stream-heading" to='/discover'>Discover</NavLink>
           </div>
         </div>
         <div className="stream-index">

@@ -278,6 +278,7 @@ html {
   border: 2px solid dodgerblue;
   text-align: center;
   padding-bottom: 35px;
+  cursor: pointer;
 }
 
 .guest-div {
@@ -349,6 +350,7 @@ html {
   width: 75%;
   margin: auto;
   height: 52px;
+  justify-content: space-between;
 }
 
 .parent-div button {
@@ -985,6 +987,26 @@ input[type="file"] {
   font-size: 17px;
 }
 
+.unlike-div {
+  height: 25px;
+  border: 1px solid #f50;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 20px;
+  padding: 2px 2px 1px 2px;
+  cursor: pointer;
+  color: #f50;
+}
+
+.unlikecount {
+  margin-left: 2px;
+  font-family: 'Jaldi', sans-serif;
+  font-size: 17px;
+  color: #f50;
+}
+
 .delete-bro {
   display: flex;
   width: 100%;
@@ -1034,6 +1056,24 @@ input[type="file"] {
 .song-info-div {
   display: flex;
   flex-direction: row;
+}
+
+.genre-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius:10px;
+  font-family: 'Jaldi', sans-serif;
+  font-size: 17px;
+  background: grey;
+  color: white;
+  margin-left: 20px;
+  height: 40px;
+}
+
+.genre-div span {
+  text-align: center;
+  width: 80px;
 }
 
 
