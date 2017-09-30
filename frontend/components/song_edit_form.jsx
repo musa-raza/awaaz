@@ -6,6 +6,7 @@ import { withRouter } from 'react-router-dom';
 class SongEditForm extends React.Component {
 
   constructor(props) {
+    window.scrollTo(0, 0);
     super(props);
     this.state = {
       title: this.props.song.title,

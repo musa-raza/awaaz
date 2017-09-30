@@ -12,6 +12,7 @@ import Wavesurfer from 'react-wavesurfer';
 class SongShow extends React.Component {
 
 constructor(props) {
+  window.scrollTo(0, 0);
   super(props);
   this.wavesurfer = null;
   this.state = {

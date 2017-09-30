@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 class SessionForm extends React.Component {
 
   constructor(props) {
+    window.scrollTo(0, 0);
     super(props);
     this.state = {
       username: "",

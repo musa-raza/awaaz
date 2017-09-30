@@ -5,7 +5,9 @@ import StreamIndexItem from './stream_index_item';
 
 class StreamIndex extends React.Component {
 
+
   constructor(props) {
+    window.scrollTo(0, 0);
     super(props);
     this.setQueue = this.setQueue.bind(this);
     this.state = {
