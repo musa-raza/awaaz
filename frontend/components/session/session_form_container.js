@@ -20,7 +20,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     processForm: (user) => dispatch(func(user)),
     removeModal: () => dispatch(removeModal()),
-    removeErrors: (errors) => dispatch(receiveErrors([]))
+    removeErrors: (errors) => dispatch(receiveErrors([])),
+    login: (user) => dispatch(login(user)),
   };
 };
 

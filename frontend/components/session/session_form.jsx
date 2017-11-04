@@ -40,7 +40,7 @@ class SessionForm extends React.Component {
   handleGuest(e) {
     e.preventDefault();
     const user = {username: "Guest", password: "password"};
-    this.props.processForm(user);
+    this.props.login(user);
   }
 
   handleRemove(e) {
@@ -60,7 +60,7 @@ class SessionForm extends React.Component {
         <div className="form-div" onClick={(e) => e.stopPropagation()}>
           <form className="session-form" onSubmit={this.handleSubmit}>
             <div className="guest-div">
-              <button className="guest-login" onClick={this.handleGuest}>Continue as guest</button>
+              <button type="button"className="guest-login" onClick={this.handleGuest}>Continue as guest</button>
             </div>
             <h2 className="modal-divide">or</h2>
             <input
@@ -77,7 +77,7 @@ class SessionForm extends React.Component {
              placeholder="Password..."
              value={this.state.password}
            />
-         <button className="session-button" onClick={this.handleSubmit}>{this.props.formType}</button>
+         <input type="submit" className="session-button" onClick={this.handleSubmit} value={this.props.formType} />
          <ul>
            {errors}
          </ul>
