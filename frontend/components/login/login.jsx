@@ -53,7 +53,7 @@ class Login extends React.Component {
             <div className="login-peak">
               <div className="login-parentdivs">
               <div className="login-search">
-                <input type="search" placeholder="Search for your favorite artists" />
+                
               </div>
               <div className="loginheading-div">
                 <h2 className="loginheading-text">Here's what's trending in the Awaaz community</h2>
