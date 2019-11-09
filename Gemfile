@@ -25,12 +25,18 @@ gem 'aws-sdk', '>= 2.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 gem 'font-awesome-sass'
+gem "loofah", ">= 2.3.1"
+gem "actionview", ">= 5.1.6.2"
+gem "activejob", ">= 5.1.6.1"
+gem "rack", ">= 2.0.6"
+gem "rails-html-sanitizer", ">= 1.0.4"
+gem "nokogiri", ">= 1.10.4"
+gem "paperclip", ">= 5.2.0"
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt'
 gem 'jquery-rails'
-gem 'paperclip', '~> 5.0.0.beta1'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
